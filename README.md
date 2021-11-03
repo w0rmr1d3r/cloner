@@ -38,7 +38,7 @@ python3 cloner <organization>
 Cloning all the repos your user can see (GitHub token needed):
 
 ```bash
-python3 cloner <organization> --token <your_github_token>
+python3 cloner <organization> --token=<your_github_token>
 ```
 
 More info:
