@@ -5,7 +5,7 @@ import threading
 import click
 
 from __version__ import __version__
-from cloner_process import ClonerProcess
+from clone_repos import clone_repos
 from obtain_repos import obtain_repos
 from split_queue import split_queue
 
@@ -52,7 +52,7 @@ def setup_logging(level: str) -> None:
     help="Logging level",
     show_default=True,
 )
-def cli(github_organization, token, threads, logging_level):
+def cli(github_organization: str, token: str, threads: int, logging_level: str) -> None:
     """Clones all visible repositories for a given organization."""
     setup_logging(level=logging_level)
 
@@ -71,14 +71,7 @@ def cli(github_organization, token, threads, logging_level):
 
     logging.info('Cloning repos...')
 
-    list_of_processes = []
-    for i in range(threads):
-        process = ClonerProcess(repos_to_clone=repos_to_clone[i], process_id=i)
-        list_of_processes.append(process)
-        process.start()
-
-    for process in list_of_processes:
-        process.join()
+    clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
 
     logging.info('Repos cloned!')
 

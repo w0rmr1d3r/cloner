@@ -16,8 +16,8 @@ class ClonerProcess(Process):
     def run(self):
         """Clones each repo given in the constructor."""
         for repo in self.repos_list:
-            # --depth 1  ???
-            # git options?
-            # logging.debug(f"Process {self.process_id} cloning {repo}")
+            # git options? --depth 1  ???
             # todo -> path as an option?
+            # https://pypi.org/project/multiprocessing-logging/ not in windows
+            # logging.debug(f"Process {self.process_id} cloning {repo}")
             os.system(f"git clone {repo.clone_url} --quiet ./repos/{repo.name}")
