@@ -3,63 +3,44 @@
 A tool to clone efficiently all the repos in an organization
 
 [![CodeQL](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml)
+<!-- python 3.10 badge -->
+<!-- test in ubuntu? -->
 
+Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1)
 
-## Installation
+## Requirements
 
-### MacOS (not yet tested)
-
-```bash
-python3 -m venv .venv
-pip3 install virtualenv
-source .venv/bin/activate
-pip3 install -r requirements.txt
-python3 cloner --help
-```
-
-### Windows10
-
-```bash
-python3 -m venv .\.venv\
-pip3 install virtualenv
-.\.venv\Scripts\activate
-pip3 install -r .\requirements.txt
-python3 cloner --help
-```
+* [pyenv](https://github.com/pyenv/pyenv)
+* [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+* Virtual env created with Python 3.10.0 (supported version)
+* Install requirements with `make install`
 
 ## Usage
 
-Cloning only public repos:
+With the virtualenv active:
 
-```bash
-python3 cloner <organization>
+```text
+Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
+
+  Clones all visible repositories for a given organization.
+
+Options:
+  --version                       Show the version and exit.
+  --token TEXT                    GitHub token to read private repos.
+  --threads INTEGER               Number of threads and processes to use.
+                                  [default: 4]
+  --logging [ERROR|WARNING|INFO|DEBUG]
+                                  Logging level  [default: INFO]
+  --help                          Show this message and exit.
 ```
 
-Cloning all the repos your user can see (GitHub token needed):
+## Running Tests
+
+With the virtual env active:
 
 ```bash
-python3 cloner <organization> --token=<your_github_token>
-```
-
-More info:
-
-```bash
-python3 cloner --help
-```
-
-To exit the virtual env:
-
-```bash
-deactivate
-```
-
-## Running Tests (WIP)
-
-With the virtual env active and in the root folder:
-
-```bash
-pip3 install -r requirements-dev.txt
-pytest tests
+make install-dev
+make unit
 ```
 
 ## Contributing
@@ -70,14 +51,11 @@ Issues and Pull Requests are welcome :)
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
 
+`Makefile` and `setup.py` based on [Skyscanner cfripper](https://github.com/Skyscanner/cfripper).
+
 ## Other & Troubleshooting
 
 Multithreading doesn't work to clone repos, since the `os.system` call is 1 for each PID. The splitting is done with
 multithreading, the cloning with multiprocessing. Same amount of threads and processes.
 
-If we can't activate the virtual env in Windows10, review with this:
-
-```bash
-> Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
-> Get-ExecutionPolicy -List
-```
+[Windows usage and support](docs/WINDOWS.md)

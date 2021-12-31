@@ -4,10 +4,10 @@ import threading
 
 import click
 
-from __version__ import __version__
-from clone_repos import clone_repos
-from obtain_repos import obtain_repos
-from split_queue import split_queue
+from cloner.__version__ import __version__
+from cloner.clone_repos import clone_repos
+from cloner.obtain_repos import obtain_repos
+from cloner.split_queue import split_queue
 
 repository_list_queue_lock = threading.Lock()
 repository_list_queue = queue.Queue()
@@ -22,26 +22,28 @@ LOGGING_LEVELS = {
 
 def setup_logging(level: str) -> None:
     """Logging setup and configuration."""
-    logging.basicConfig(level=LOGGING_LEVELS[level], format='%(levelname)s - %(message)s')
+    logging.basicConfig(
+        level=LOGGING_LEVELS[level], format="%(levelname)s - %(message)s"
+    )
 
 
 @click.command()
-@click.version_option(prog_name='cloner', version=__version__)
-@click.argument('github_organization')
+@click.version_option(prog_name="cloner", version=__version__)
+@click.argument("github_organization")
 @click.option(
-    '--token',
-    'token',
+    "--token",
+    "token",
     type=str,
     default=None,
-    help='GitHub token to read private repos.',
+    help="GitHub token to read private repos.",
     show_default=True,
 )
 @click.option(
-    '--threads',
-    'threads',
+    "--threads",
+    "threads",
     type=int,
     default=4,
-    help='Number of threads and processes to use.',
+    help="Number of threads and processes to use.",
     show_default=True,
 )
 @click.option(
@@ -58,22 +60,26 @@ def cli(github_organization: str, token: str, threads: int, logging_level: str) 
 
     logging.info(f"Cloning repos for: {github_organization}")
 
-    obtain_repos(github_organization=github_organization,
-                 github_token=token,
-                 queue_lock=repository_list_queue_lock,
-                 repo_queue=repository_list_queue)
+    obtain_repos(
+        github_organization=github_organization,
+        github_token=token,
+        queue_lock=repository_list_queue_lock,
+        repo_queue=repository_list_queue,
+    )
 
     logging.info(f"Total repos to clone: {repository_list_queue.qsize()}")
 
-    repos_to_clone = split_queue(number_of_threads=threads,
-                                 repository_queue=repository_list_queue,
-                                 repository_queue_lock=repository_list_queue_lock)
+    repos_to_clone = split_queue(
+        number_of_threads=threads,
+        repository_queue=repository_list_queue,
+        repository_queue_lock=repository_list_queue_lock,
+    )
 
-    logging.info('Cloning repos...')
+    logging.info("Cloning repos...")
 
     clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
 
-    logging.info('Repos cloned!')
+    logging.info("Repos cloned!")
 
 
 # can this be deleted?

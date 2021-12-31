@@ -1,16 +1,18 @@
 import queue
 import threading
 
-from repository import Repository
+from cloner.repository import Repository
 
 exit_flag = False
 repository_list_queue_lock = None
 repository_list_queue = None
 
 
-def split_queue(number_of_threads: int,
-                repository_queue: queue.Queue,
-                repository_queue_lock: threading.Lock()) -> list[list[Repository]]:
+def split_queue(
+    number_of_threads: int,
+    repository_queue: queue.Queue,
+    repository_queue_lock: threading.Lock(),
+) -> list[list[Repository]]:
     """Splits the queue of repos into a list of repo lists, one per thread"""
 
     global repository_list_queue_lock, repository_list_queue
