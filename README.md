@@ -4,7 +4,7 @@ A tool to clone efficiently all the repos in an organization
 
 [![CodeQL](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
-<!-- python 3.10 badge -->
+[![Generic badge](https://img.shields.io/badge/python-3.10-success.svg)](https://shields.io/)
 
 Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1)
 
@@ -47,6 +47,10 @@ make unit
 
 Issues and Pull Requests are welcome :)
 
+## Security
+
+If a security issue is found, please follow the instructions in the [SECURITY.md](SECURITY.md) file.
+
 ## License
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
@@ -59,3 +63,7 @@ Multithreading doesn't work to clone repos, since the `os.system` call is 1 for 
 multithreading, the cloning with multiprocessing. Same amount of threads and processes.
 
 [Windows usage and support](docs/WINDOWS.md)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/w0rmr1d3r/cloner.svg)](https://starchart.cc/w0rmr1d3r/cloner)
