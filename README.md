@@ -45,7 +45,7 @@ make unit
 
 ## Contributing
 
-Issues and Pull Requests are welcome :)
+Check the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Security
 
