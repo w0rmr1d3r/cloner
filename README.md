@@ -6,7 +6,7 @@ A tool to clone efficiently all the repos in an organization
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
 [![Generic badge](https://img.shields.io/badge/python-3.10-success.svg)](https://shields.io/)
 
-Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1)
+Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1?fullscreen=true)
 
 ## Requirements
 
