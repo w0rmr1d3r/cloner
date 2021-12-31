@@ -25,10 +25,10 @@ unit:
 test: lint unit
 
 freeze:
-	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-annotate --no-emit-index-url -v --output-file requirements.txt setup.py --max-rounds 50
+	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-emit-index-url -v --output-file requirements.txt setup.py --max-rounds 50
 
 freeze-upgrade:
-	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-annotate --no-emit-index-url -v --upgrade --output-file requirements.txt setup.py --max-rounds 50
+	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-emit-index-url -v --upgrade --output-file requirements.txt setup.py --max-rounds 50
 
 build: install-dev test
 
