@@ -3,8 +3,8 @@
 A tool to clone efficiently all the repos in an organization
 
 [![CodeQL](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml)
+[![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
 <!-- python 3.10 badge -->
-<!-- test in ubuntu? -->
 
 Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1)
 
