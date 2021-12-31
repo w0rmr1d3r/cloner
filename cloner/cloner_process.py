@@ -1,8 +1,7 @@
 import os
-
 from multiprocessing import Process
 
-from repository import Repository
+from cloner.repository import Repository
 
 
 class ClonerProcess(Process):

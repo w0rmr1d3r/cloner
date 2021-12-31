@@ -1,5 +1,5 @@
-from cloner_process import ClonerProcess
-from repository import Repository
+from cloner.cloner_process import ClonerProcess
+from cloner.repository import Repository
 
 
 def clone_repos(number_of_threads: int, repos_to_clone: list[list[Repository]]) -> None:
