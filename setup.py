@@ -12,12 +12,12 @@ install_requires = [
 ]
 
 dev_requires = [
-    "black>=19.10b0",
-    "faker>=9.7.1",
-    "flake8>=3.3.0",
-    "isort>=4.3.21",
-    "pip-tools>=5.3.1",
-    "pytest>=6.2.5",
+    "black==22.1.0",
+    "faker==12.0.1",
+    "flake8==4.0.1",
+    "isort==5.10.0",
+    "pip-tools==5.3.1",
+    "pytest==6.2.5",
 ]
 
 setup(
