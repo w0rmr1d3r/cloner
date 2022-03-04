@@ -1,7 +1,7 @@
 install:
 	pip install -r requirements.txt
 
-install-dev: install
+install-dev:
 	pip install -r requirements-dev.txt
 
 format:
