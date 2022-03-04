@@ -7,18 +7,18 @@ from cloner import __version__
 project_root_path = Path(__file__).parent
 
 install_requires = [
-    "click==8.0.3",
-    "requests==2.27.1",
+    "click>=8.0.3",
+    "requests>=2.27.1",
 ]
 
 dev_requires = [
-    "black==22.1.0",
-    "faker==12.0.1",
-    "flake8==4.0.1",
-    "isort==5.10.0",
-    "pip-tools==5.3.1",
-    "pytest==6.2.5",
-    "responses==0.18.0",
+    "black>=22.1.0",
+    "faker>=12.0.1",
+    "flake8>=4.0.1",
+    "isort>=5.10.0",
+    "pip-tools>=6.5.1",
+    "pytest>=6.2.5",
+    "responses>=0.18.0",
 ]
 
 setup(
