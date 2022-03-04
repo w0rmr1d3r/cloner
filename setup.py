@@ -8,7 +8,7 @@ project_root_path = Path(__file__).parent
 
 install_requires = [
     "click==8.0.3",
-    "requests==2.26.0",
+    "requests==2.27.1",
 ]
 
 dev_requires = [
