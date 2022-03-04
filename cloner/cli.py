@@ -3,6 +3,7 @@ import queue
 import threading
 
 import click
+from requests import HTTPError
 
 from cloner.__version__ import __version__
 from cloner.clone_repos import clone_repos
@@ -60,26 +61,31 @@ def cli(github_organization: str, token: str, threads: int, logging_level: str) 
 
     logging.info(f"Cloning repos for: {github_organization}")
 
-    obtain_repos(
-        github_organization=github_organization,
-        github_token=token,
-        queue_lock=repository_list_queue_lock,
-        repo_queue=repository_list_queue,
-    )
+    try:
+        obtain_repos(
+            github_organization=github_organization,
+            github_token=token,
+            queue_lock=repository_list_queue_lock,
+            repo_queue=repository_list_queue,
+        )
+    except HTTPError as e:
+        logging.error("An error has occurred while obtaining repos", exc_info=e)
 
-    logging.info(f"Total repos to clone: {repository_list_queue.qsize()}")
+    total_repos_to_clone = repository_list_queue.qsize()
+    logging.info(f"Total repos to clone: {total_repos_to_clone}")
 
-    repos_to_clone = split_queue(
-        number_of_threads=threads,
-        repository_queue=repository_list_queue,
-        repository_queue_lock=repository_list_queue_lock,
-    )
+    if total_repos_to_clone > 0:
+        repos_to_clone = split_queue(
+            number_of_threads=threads,
+            repository_queue=repository_list_queue,
+            repository_queue_lock=repository_list_queue_lock,
+        )
 
-    logging.info("Cloning repos...")
+        logging.info("Cloning repos...")
 
-    clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
+        clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
 
-    logging.info("Repos cloned!")
+        logging.info("Repos cloned!")
 
 
 # can this be deleted?
