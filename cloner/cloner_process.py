@@ -4,6 +4,7 @@ from multiprocessing import Process
 from cloner.repository import Repository
 
 
+# todo - needs tests
 class ClonerProcess(Process):
     """Class to clone a list of given repositories when started."""
 

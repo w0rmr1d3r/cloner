@@ -7,6 +7,8 @@ exit_flag = False
 repository_list_queue_lock = None
 repository_list_queue = None
 
+# todo - all this class needs tests
+
 
 def split_queue(
     number_of_threads: int,
