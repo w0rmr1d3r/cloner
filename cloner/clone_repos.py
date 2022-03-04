@@ -2,6 +2,7 @@ from cloner.cloner_process import ClonerProcess
 from cloner.repository import Repository
 
 
+# todo - needs tests
 def clone_repos(number_of_threads: int, repos_to_clone: list[list[Repository]]) -> None:
     list_of_processes = []
     for i in range(number_of_threads):

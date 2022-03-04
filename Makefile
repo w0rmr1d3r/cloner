@@ -5,13 +5,13 @@ install-dev: install
 	pip install -e ".[dev]"
 
 format:
-	isort --recursive .
+	isort --float-to-top .
 	black .
 
 lint: isort-lint black-lint flake8-lint
 
 isort-lint:
-	isort --check-only --recursive .
+	isort --check-only .
 
 black-lint:
 	black --check .
@@ -32,4 +32,4 @@ freeze-upgrade:
 
 build: install-dev test
 
-.PHONY: install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-upgrade
+.PHONY: build install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-upgrade
