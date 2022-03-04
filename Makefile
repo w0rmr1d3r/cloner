@@ -32,4 +32,4 @@ freeze-upgrade:
 
 build: install-dev test
 
-.PHONY: install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-upgrade
+.PHONY: build install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-upgrade
