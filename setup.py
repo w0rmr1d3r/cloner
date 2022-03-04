@@ -7,8 +7,8 @@ from cloner import __version__
 project_root_path = Path(__file__).parent
 
 install_requires = [
-    "click>=8.0.3",
-    "requests>=2.26.0",
+    "click==8.0.3",
+    "requests==2.26.0",
 ]
 
 dev_requires = [
@@ -18,6 +18,7 @@ dev_requires = [
     "isort==5.10.0",
     "pip-tools==5.3.1",
     "pytest==6.2.5",
+    "responses==0.18.0",
 ]
 
 setup(
