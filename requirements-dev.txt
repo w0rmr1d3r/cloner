@@ -68,7 +68,7 @@ tomli==2.0.1
     #   black
     #   pep517
     #   pytest
-urllib3==1.26.8
+urllib3==1.26.9
     # via
     #   requests
     #   responses
