@@ -59,7 +59,7 @@ requests==2.27.1
     # via
     #   cloner (setup.py)
     #   responses
-responses==0.18.0
+responses==0.20.0
     # via cloner (setup.py)
 six==1.16.0
     # via python-dateutil

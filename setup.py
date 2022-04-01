@@ -18,7 +18,7 @@ dev_requires = [
     "isort>=5.10.0",
     "pip-tools>=6.5.1",
     "pytest>=6.2.5",
-    "responses>=0.18.0",
+    "responses>=0.20.0",
 ]
 
 setup(
