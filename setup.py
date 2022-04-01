@@ -12,7 +12,7 @@ install_requires = [
 ]
 
 dev_requires = [
-    "black>=22.1.0",
+    "black>=22.3.0",
     "faker>=12.0.1",
     "flake8>=4.0.1",
     "isort>=5.10.0",
