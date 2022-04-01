@@ -241,7 +241,7 @@ def test_obtain_repos_retrieves_one_repo_and_puts_it_in_the_queue(
     repository_list_queue = queue.Queue()  # todo - could this be a global fixture
 
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
-    responses.add(responses.GET, github_url, json=github_response_one_repo, status=200)
+    responses.get(github_url, json=github_response_one_repo, status=200)
 
     expected_repository_in_queue = Repository(
         clone_url="https://github.com/octocat/Hello-World.git",
@@ -270,8 +270,7 @@ def test_obtain_repos_with_token_retrieves_one_public_repo_and_one_private_repo_
     repository_list_queue = queue.Queue()  # todo - could this be a global fixture
 
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
-    responses.add(
-        responses.GET,
+    responses.get(
         github_url,
         json=github_response_one_repo + github_response_one_private_repo,
         status=200,
@@ -308,9 +307,7 @@ def test_obtain_repos_raises_exception_if_organization_is_not_found(
     repository_list_queue = queue.Queue()  # todo - could this be a global fixture
 
     github_url = "https://api.github.com/orgs/NOTANORG/repos"
-    responses.add(
-        responses.GET, github_url, json=not_found_organization_response, status=404
-    )
+    responses.get(github_url, json=not_found_organization_response, status=404)
 
     with raises(HTTPError):
         obtain_repos(
@@ -332,8 +329,7 @@ def test_obtain_repos_can_append_repos_if_there_are_more_than_one_page(
     repository_list_queue = queue.Queue()  # todo - could this be a global fixture
 
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
-    responses.add(
-        responses.GET,
+    responses.get(
         github_url,
         json=github_response_one_repo,
         status=200,
@@ -344,8 +340,7 @@ def test_obtain_repos_can_append_repos_if_there_are_more_than_one_page(
             )
         ],
     )
-    responses.add(
-        responses.GET,
+    responses.get(
         "https://api.github.com/organizations/123456/repos",
         json=github_response_one_private_repo,
         status=200,
