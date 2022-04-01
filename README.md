@@ -5,6 +5,7 @@ A tool to clone efficiently all the repos in an organization
 [![CodeQL](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql-analysis.yml)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
+[![codebeat badge](https://codebeat.co/badges/f89af8bc-5f50-4530-96b7-bae13975ce70)](https://codebeat.co/projects/github-com-w0rmr1d3r-cloner-master)
 [![Generic badge](https://img.shields.io/badge/python-3.10-success.svg)](https://shields.io/)
 
 Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1?fullscreen=true)
