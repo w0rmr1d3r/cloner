@@ -18,7 +18,7 @@ A tool to clone efficiently all the repos in an organization
 pip install wr-cloner
 ```
 
-_Yes, it's called wr-cloner in PyPi, since cloner was already taken :sad:_
+_Yes, it's called **wr-cloner** in PyPi, since **cloner** was already taken :sad:_
 
 ## Usage
 
@@ -50,6 +50,12 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 ## License
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
+
+## Licence
+
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a
+tree**](https://plant.treeware.earth/w0rmr1d3r/cloner) to thank us for our work. By contributing to the
+Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
 ## Other & Troubleshooting
 
