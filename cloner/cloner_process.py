@@ -4,7 +4,6 @@ from multiprocessing import Process
 from cloner.repository import Repository
 
 
-# todo - needs tests
 class ClonerProcess(Process):
     """Class to clone a list of given repositories when started."""
 
@@ -13,6 +12,9 @@ class ClonerProcess(Process):
         self.repos_list = repos_to_clone
         self.process_id = process_id
 
+    def _execute_system_command(self, command):
+        return os.system(command=command)
+
     def run(self):
         """Clones each repo given in the constructor."""
         for repo in self.repos_list:
@@ -20,4 +22,6 @@ class ClonerProcess(Process):
             # todo -> path as an option?
             # https://pypi.org/project/multiprocessing-logging/ not in windows
             # logging.debug(f"Process {self.process_id} cloning {repo}")
-            os.system(f"git clone {repo.clone_url} --quiet ./repos/{repo.name}")
+            self._execute_system_command(
+                command=f"git clone {repo.clone_url} --quiet ./repos/{repo.name}"
+            )

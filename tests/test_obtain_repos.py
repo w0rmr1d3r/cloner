@@ -1,5 +1,4 @@
 import queue
-import threading
 
 import responses
 from _pytest.fixtures import fixture
@@ -8,12 +7,6 @@ from requests import HTTPError
 
 from cloner.obtain_repos import obtain_repos
 from cloner.repository import Repository
-
-
-@fixture()
-def queue_lock() -> threading.Lock:
-    # todo - make this a "common" fixture
-    return threading.Lock()
 
 
 @fixture()

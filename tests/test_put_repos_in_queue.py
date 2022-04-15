@@ -1,16 +1,7 @@
 import queue
-import threading
-
-from _pytest.fixtures import fixture
 
 from cloner.put_repos_in_queue import put_repos_in_queue
 from cloner.repository import Repository
-
-
-@fixture()
-def queue_lock():
-    # todo - make this a "common" fixture
-    return threading.Lock()
 
 
 def test_put_repos_into_queue_puts_obtained_repos_as_repositories_into_a_given_queue(
