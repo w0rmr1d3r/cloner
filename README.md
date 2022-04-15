@@ -12,6 +12,8 @@ A tool to clone efficiently all the repos in an organization
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
 [![codebeat badge](https://codebeat.co/badges/f89af8bc-5f50-4530-96b7-bae13975ce70)](https://codebeat.co/projects/github-com-w0rmr1d3r-cloner-master)
 
+![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)
+
 ## Install
 
 ```bash
@@ -51,9 +53,11 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
 
+## Treeware
+
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a
-tree**](https://plant.treeware.earth/w0rmr1d3r/cloner) to thank us for our work. By contributing to the
-Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
+tree**](https://plant.treeware.earth/w0rmr1d3r/cloner) to thank us for our work. By contributing to the Treeware forest
+you’ll be creating employment for local families and restoring wildlife habitats.
 
 ## Other & Troubleshooting
 
