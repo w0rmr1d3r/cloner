@@ -54,7 +54,7 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 ## Licence
 
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a
-tree**](https://plant.treeware.earth/mik-p/wn-s3browser-plugin) to thank us for our work. By contributing to the
+tree**](https://plant.treeware.earth/w0rmr1d3r/cloner) to thank us for our work. By contributing to the
 Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
 ## Other & Troubleshooting
