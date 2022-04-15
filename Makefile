@@ -36,6 +36,4 @@ freeze-upgrade:
 freeze-upgrade-dev:
 	CUSTOM_COMPILE_COMMAND="make freeze-dev" pip-compile --extra "dev" --no-emit-index-url -v --upgrade --output-file requirements-dev.txt setup.py --max-rounds 50
 
-build: install-dev test
-
-.PHONY: build install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-dev freeze-upgrade freeze-upgrade-dev
+.PHONY: install install-dev isort-lint black-lint flake8-lint format unit test freeze freeze-dev freeze-upgrade freeze-upgrade-dev
