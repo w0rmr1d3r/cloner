@@ -32,9 +32,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/w0rmr1d3r/cloner",
     project_urls={},
-    classifiers=[
-        "Programming Language :: Python :: 3.10"
-    ],
+    classifiers=["Programming Language :: Python :: 3.10"],
     packages=find_packages(exclude=("docs", "tests")),
     platforms="any",
     python_requires=">=3.10.0",
