@@ -22,6 +22,9 @@ jobs:
       - name: Install build dependencies
         run: pip install build
 
+      - name: Build project
+        run: python3 -m build
+
       - name: Publish package to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1.5
         with:
