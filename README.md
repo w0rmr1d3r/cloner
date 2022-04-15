@@ -14,7 +14,7 @@ Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/proj
 
 * [pyenv](https://github.com/pyenv/pyenv)
 * [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
-* Virtual env created with Python 3.10.0 (supported version)
+* Virtual env created with Python 3.10 (supported version)
 * Install requirements with `make install`
 
 ## Usage
