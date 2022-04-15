@@ -22,16 +22,18 @@ dev_requires = [
 ]
 
 setup(
-    name="cloner",
+    name="wr-cloner",
     version=__version__.__version__,
     author="w0rmr1d3r",
     author_email="",
+    description="A tool to clone efficiently all the repos in an organization",
     entry_points={"console_scripts": ["cloner=cloner.cli:cli"]},
     long_description=(project_root_path / "README.md").read_text(),
     long_description_content_type="text/markdown",
     url="https://github.com/w0rmr1d3r/cloner",
-    description="A tool to clone efficiently all the repos in an organization",
-    packages=find_packages(exclude="tests"),
+    project_urls={},
+    classifiers=["Programming Language :: Python :: 3.10"],
+    packages=find_packages(exclude=("docs", "tests")),
     platforms="any",
     python_requires=">=3.10.0",
     install_requires=install_requires,
