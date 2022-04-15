@@ -1,16 +1,4 @@
-from _pytest.fixtures import fixture
-
 from cloner.repository import Repository
-
-
-@fixture
-def random_repository(faker) -> Repository:
-    name = faker.first_name()
-    return Repository(
-        name=name,
-        clone_url=f"https://github.com/organization/{name}.git",
-        repo_id=faker.random_number(digits=4, fix_len=False),
-    )
 
 
 def test_repository_as_string(random_repository):
