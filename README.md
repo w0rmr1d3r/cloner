@@ -12,7 +12,7 @@ A tool to clone efficiently all the repos in an organization
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
 [![codebeat badge](https://codebeat.co/badges/f89af8bc-5f50-4530-96b7-bae13975ce70)](https://codebeat.co/projects/github-com-w0rmr1d3r-cloner-master)
 
-![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)
+[![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)](https://plant.treeware.earth/w0rmr1d3r/cloner)
 
 ## Install
 
