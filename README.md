@@ -64,6 +64,6 @@ multithreading, the cloning with multiprocessing. Same amount of threads and pro
 
 [Windows usage and support](docs/WINDOWS.md)
 
-## Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/w0rmr1d3r/cloner.svg)](https://starchart.cc/w0rmr1d3r/cloner)
+[![Star History Chart](https://api.star-history.com/svg?repos=w0rmr1d3r/cloner&type=Date)](https://star-history.com/#w0rmr1d3r/cloner&Date)
