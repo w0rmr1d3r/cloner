@@ -17,7 +17,7 @@ click==8.0.3
     #   black
     #   cloner (setup.py)
     #   pip-tools
-faker==13.3.4
+faker==13.6.0
     # via cloner (setup.py)
 flake8==4.0.1
     # via cloner (setup.py)
