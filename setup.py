@@ -22,6 +22,16 @@ dev_requires = [
     "responses>=0.20.0",
 ]
 
+classifiers = """\
+Development Status :: 3 - Alpha
+Environment :: Console
+Intended Audience :: Developers
+License :: OSI Approved :: MIT License
+Programming Language :: Python
+Programming Language :: Python :: 3
+Programming Language :: Python :: 3.10
+"""
+
 setup(
     name="wr-cloner",
     version=__version__.__version__,
@@ -33,7 +43,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/w0rmr1d3r/cloner",
     project_urls={},
-    classifiers=["Programming Language :: Python :: 3.10"],
+    classifiers=classifiers.splitlines(),
     packages=find_packages(exclude=("docs", "tests")),
     platforms="any",
     python_requires=">=3.10.0",
