@@ -33,6 +33,10 @@ jobs:
       - name: Run coverage
         run: make coverage
 
+      # https://community.sonarsource.com/t/sonar-on-github-actions-with-python-coverage-source-issue/36057
+      - name: Override Coverage Source Path for Sonar
+        run: sed -i "s/<source>\/home\/runner\/work\/cloner\/cloner<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/cloner/cloner/build/coverage.xml
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
