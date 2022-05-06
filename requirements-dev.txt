@@ -7,7 +7,7 @@
 attrs==21.4.0
     # via pytest
 black==22.3.0
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.12
@@ -15,18 +15,20 @@ charset-normalizer==2.0.12
 click==8.0.3
     # via
     #   black
-    #   cloner (setup.py)
     #   pip-tools
+    #   wr-cloner (setup.py)
+coverage==6.3.2
+    # via wr-cloner (setup.py)
 faker==13.7.0
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 flake8==4.0.1
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 idna==3.3
     # via requests
 iniconfig==1.1.1
     # via pytest
 isort==5.10.1
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 mccabe==0.6.1
     # via flake8
 mypy-extensions==0.4.3
@@ -38,7 +40,7 @@ pathspec==0.9.0
 pep517==0.12.0
     # via pip-tools
 pip-tools==6.6.0
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 platformdirs==2.5.2
     # via black
 pluggy==1.0.0
@@ -52,15 +54,15 @@ pyflakes==2.4.0
 pyparsing==3.0.8
     # via packaging
 pytest==7.1.2
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 python-dateutil==2.8.2
     # via faker
 requests==2.27.1
     # via
-    #   cloner (setup.py)
     #   responses
+    #   wr-cloner (setup.py)
 responses==0.20.0
-    # via cloner (setup.py)
+    # via wr-cloner (setup.py)
 six==1.16.0
     # via python-dateutil
 tomli==2.0.1

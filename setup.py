@@ -13,6 +13,7 @@ install_requires = [
 
 dev_requires = [
     "black>=22.3.0",
+    "coverage>=6.3.2",
     "faker>=12.0.1",
     "flake8>=4.0.1",
     "isort>=5.10.0",
