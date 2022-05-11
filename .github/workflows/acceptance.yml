@@ -25,14 +25,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Create virtualenv
-        run: python3 -m venv test-env
-
-      - name: Activate virtualenv
-        run: source test-env/bin/activate
-
-      - name: Install dependencies
-        run: make install
-
-      - name: Clone an organization
-        run: cloner --logging DEBUG holaluz
+      - name: Run acceptance tests
+        run: python3 -m venv test-env && source test-env/bin/activate && make install && cloner --logging DEBUG holaluz
