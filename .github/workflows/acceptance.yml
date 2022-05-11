@@ -15,7 +15,7 @@ jobs:
       matrix:
         python-version: ['3.10']
 
-    name: Latest release to clone octocat
+    name: Latest release to clone GitHub
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
         run: pip install wr-cloner
 
       - name: Clone an organization
-        run: cloner octocat
+        run: cloner github
 
       - name: Check number of repos is correct
         run: ls repos
