@@ -21,7 +21,6 @@ class ClonerProcess(Process):
             # git options? --depth 1  ???
             # todo -> path as an option?
             # https://pypi.org/project/multiprocessing-logging/ not in windows
-            # logging.debug(f"Process {self.process_id} cloning {repo}")
             self._execute_system_command(
                 command=f"git clone {repo.clone_url} --quiet ./repos/{repo.name}"
             )

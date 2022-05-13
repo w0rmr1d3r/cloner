@@ -1,7 +1,10 @@
+import logging
 import queue
 import threading
 
 from cloner.repository import Repository
+
+logger = logging.getLogger(__file__)
 
 exit_flag = False
 repository_list_queue_lock = None
@@ -36,7 +39,7 @@ def split_queue(
     exit_flag = True
 
     for t in thread_list:
-        # logging.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
+        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
         t.join()
         repos_to_clone.append(t.repos_to_clone_list)
 
@@ -53,10 +56,10 @@ class SplitterThread(threading.Thread):
         self.total_threads = total_threads
 
     def run(self):
-        # logging.debug(f"Starting thread -> {self.thread_id}")
+        logger.debug(f"Starting thread -> {self.thread_id}")
         self.process_repo()
-        # logging.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
-        # logging.debug(f"Exiting thread -> {self.thread_id}")
+        logger.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
+        logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
         """
@@ -72,7 +75,6 @@ class SplitterThread(threading.Thread):
                 else:
                     repository_list_queue.put(repository)
                 repository_list_queue_lock.release()
-                # logging.debug(f"Thread {self.thread_id} processing {repository.name}")
             else:
                 repository_list_queue_lock.release()
 
