@@ -1,5 +1,3 @@
-import queue
-
 import responses
 from _pytest.fixtures import fixture
 from _pytest.python_api import raises
@@ -229,10 +227,8 @@ def not_found_organization_response():
 
 @responses.activate
 def test_obtain_repos_retrieves_one_repo_and_puts_it_in_the_queue(
-    github_organization, queue_lock, github_response_one_repo
+    github_organization, queue_lock, github_response_one_repo, repository_list_queue
 ):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
-
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
     responses.get(github_url, json=github_response_one_repo, status=200)
 
@@ -259,9 +255,8 @@ def test_obtain_repos_with_token_retrieves_one_public_repo_and_one_private_repo_
     queue_lock,
     github_response_one_repo,
     github_response_one_private_repo,
+    repository_list_queue,
 ):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
-
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
     responses.get(
         github_url,
@@ -295,10 +290,8 @@ def test_obtain_repos_with_token_retrieves_one_public_repo_and_one_private_repo_
 
 @responses.activate
 def test_obtain_repos_raises_exception_if_organization_is_not_found(
-    queue_lock, not_found_organization_response
+    queue_lock, not_found_organization_response, repository_list_queue
 ):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
-
     github_url = "https://api.github.com/orgs/NOTANORG/repos"
     responses.get(github_url, json=not_found_organization_response, status=404)
 
@@ -318,9 +311,8 @@ def test_obtain_repos_can_append_repos_if_there_are_more_than_one_page(
     queue_lock,
     github_response_one_repo,
     github_response_one_private_repo,
+    repository_list_queue,
 ):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
-
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
     responses.get(
         github_url,

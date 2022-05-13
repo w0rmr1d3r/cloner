@@ -1,3 +1,4 @@
+import queue
 import threading
 
 import pytest
@@ -18,3 +19,8 @@ def random_repository(faker) -> Repository:
 @pytest.fixture
 def queue_lock() -> threading.Lock:
     return threading.Lock()
+
+
+@pytest.fixture
+def repository_list_queue():
+    return queue.Queue()
