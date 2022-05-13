@@ -1,13 +1,10 @@
-import queue
-
 from cloner.put_repos_in_queue import put_repos_in_queue
 from cloner.repository import Repository
 
 
 def test_put_repos_into_queue_puts_obtained_repos_as_repositories_into_a_given_queue(
-    queue_lock,
+    queue_lock, repository_list_queue
 ):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
     test_json_response = [
         {
             "name": "test_name",
@@ -30,8 +27,9 @@ def test_put_repos_into_queue_puts_obtained_repos_as_repositories_into_a_given_q
     assert repository_list_queue.get() == expected_repository
 
 
-def test_put_repos_into_queue_does_nothing_if_no_answer_obtained(queue_lock):
-    repository_list_queue = queue.Queue()  # todo - could this be a global fixture
+def test_put_repos_into_queue_does_nothing_if_no_answer_obtained(
+    queue_lock, repository_list_queue
+):
     test_json_response = []
 
     put_repos_in_queue(
