@@ -39,7 +39,7 @@ pathspec==0.9.0
     # via black
 pep517==0.12.0
     # via pip-tools
-pip-tools==6.6.0
+pip-tools==6.6.2
     # via wr-cloner (setup.py)
 platformdirs==2.5.2
     # via black
