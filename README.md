@@ -9,7 +9,6 @@ A tool to clone efficiently all the repos in an organization
 
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=w0rmr1d3r_cloner&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=w0rmr1d3r_cloner)
 [![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)](https://plant.treeware.earth/w0rmr1d3r/cloner)
 
 ## Install
