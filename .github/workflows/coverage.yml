@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
       - name: Setup python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -32,13 +32,3 @@ jobs:
 
       - name: Run coverage
         run: make coverage
-
-      # https://community.sonarsource.com/t/sonar-on-github-actions-with-python-coverage-source-issue/36057
-      - name: Override Coverage Source Path for Sonar
-        run: sed -i "s/<source>\/home\/runner\/work\/cloner\/cloner<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/cloner/cloner/build/coverage.xml
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
