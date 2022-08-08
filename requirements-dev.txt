@@ -19,7 +19,7 @@ click==8.1.3
     #   wr-cloner (setup.py)
 coverage==6.4.2
     # via wr-cloner (setup.py)
-faker==13.14.0
+faker==13.15.1
     # via wr-cloner (setup.py)
 flake8==4.0.1
     # via wr-cloner (setup.py)
