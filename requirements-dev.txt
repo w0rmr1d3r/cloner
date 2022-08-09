@@ -49,7 +49,7 @@ py==1.11.0
     # via pytest
 pycodestyle==2.8.0
     # via flake8
-pyflakes==2.4.0
+pyflakes==2.5.0
     # via flake8
 pyparsing==3.0.9
     # via packaging
