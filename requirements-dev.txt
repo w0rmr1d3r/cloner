@@ -23,7 +23,7 @@ faker==15.0.0
     # via wr-cloner (setup.py)
 flake8==5.0.4
     # via wr-cloner (setup.py)
-idna==3.3
+idna==3.4
     # via requests
 iniconfig==1.1.1
     # via pytest
