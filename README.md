@@ -4,7 +4,7 @@ A tool to clone efficiently all the repos in an organization
 
 [![PyPI](https://img.shields.io/pypi/v/wr-cloner)](https://pypi.org/project/wr-cloner/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/w0rmr1d3r/cloner)](https://github.com/w0rmr1d3r/cloner/releases)
-[![Generic badge](https://img.shields.io/badge/python-3.10-success.svg)](https://shields.io/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wr-cloner)
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
