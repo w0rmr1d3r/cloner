@@ -33,6 +33,10 @@ Programming Language :: Python :: 3.9
 Programming Language :: Python :: 3.10
 """
 
+# About Python versions. Only supported 3.9 and 3.10
+# If supporting newer versions, update CI, coverage and classifiers
+# If minimum version supported changes, update CI, coverage, classifiers, setup and release.
+
 setup(
     name="wr-cloner",
     version=__version__.__version__,
