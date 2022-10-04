@@ -23,14 +23,19 @@ dev_requires = [
 ]
 
 classifiers = """\
-Development Status :: 3 - Alpha
+Development Status :: 5 - Production/Stable
 Environment :: Console
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
 Programming Language :: Python
 Programming Language :: Python :: 3
+Programming Language :: Python :: 3.9
 Programming Language :: Python :: 3.10
 """
+
+# About Python versions. Only supported 3.9 and 3.10
+# If supporting newer versions, update CI, coverage and classifiers
+# If minimum version supported changes, update CI, coverage, classifiers, setup and release.
 
 setup(
     name="wr-cloner",
@@ -46,7 +51,7 @@ setup(
     classifiers=classifiers.splitlines(),
     packages=find_packages(exclude=("docs", "tests")),
     platforms="any",
-    python_requires=">=3.10.0",
+    python_requires=">=3.9.0",
     install_requires=install_requires,
     tests_require=dev_requires,
     extras_require={"dev": dev_requires},
