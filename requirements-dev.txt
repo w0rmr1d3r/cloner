@@ -61,7 +61,7 @@ requests==2.28.1
     # via
     #   responses
     #   wr-cloner (setup.py)
-responses==0.21.0
+responses==0.22.0
     # via wr-cloner (setup.py)
 six==1.16.0
     # via python-dateutil
