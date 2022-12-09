@@ -31,14 +31,10 @@ coverage:
 
 freeze:
 	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-emit-index-url -v --output-file requirements.txt setup.py --max-rounds 50
-
-freeze-dev:
 	CUSTOM_COMPILE_COMMAND="make freeze-dev" pip-compile --extra "dev" --no-emit-index-url -v --output-file requirements-dev.txt setup.py --max-rounds 50
 
 freeze-upgrade:
 	CUSTOM_COMPILE_COMMAND="make freeze" pip-compile --no-emit-index-url -v --upgrade --output-file requirements.txt setup.py --max-rounds 50
-
-freeze-upgrade-dev:
 	CUSTOM_COMPILE_COMMAND="make freeze-dev" pip-compile --extra "dev" --no-emit-index-url -v --upgrade --output-file requirements-dev.txt setup.py --max-rounds 50
 
-.PHONY: install install-dev format lint isort-lint black-lint flake8-lint unit test coverage freeze freeze-dev freeze-upgrade freeze-upgrade-dev
+.PHONY: install install-dev format lint isort-lint black-lint flake8-lint unit test coverage freeze freeze-upgrade
