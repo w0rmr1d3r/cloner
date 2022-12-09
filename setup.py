@@ -31,9 +31,10 @@ Programming Language :: Python
 Programming Language :: Python :: 3
 Programming Language :: Python :: 3.9
 Programming Language :: Python :: 3.10
+Programming Language :: Python :: 3.11
 """
 
-# About Python versions. Only supported 3.9 and 3.10
+# About Python versions. Supported 3.9 and above
 # If supporting newer versions, update CI, coverage and classifiers
 # If minimum version supported changes, update CI, coverage, classifiers, setup and release.
 
