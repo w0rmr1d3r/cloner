@@ -21,7 +21,7 @@ coverage==6.5.0
     # via wr-cloner (setup.py)
 faker==15.3.1
     # via wr-cloner (setup.py)
-flake8==5.0.4
+flake8==6.0.0
     # via wr-cloner (setup.py)
 idna==3.4
     # via requests
