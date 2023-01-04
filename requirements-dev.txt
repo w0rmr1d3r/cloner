@@ -37,7 +37,7 @@ mccabe==0.7.0
     # via flake8
 mypy-extensions==0.4.3
     # via black
-packaging==21.3
+packaging==22.0
     # via
     #   build
     #   pytest
@@ -80,7 +80,7 @@ types-toml==0.10.8.1
     # via responses
 typing-extensions==4.4.0
     # via black
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   requests
     #   responses
