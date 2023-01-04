@@ -41,7 +41,7 @@ packaging==22.0
     # via
     #   build
     #   pytest
-pathspec==0.10.2
+pathspec==0.10.3
     # via black
 pep517==0.13.0
     # via build
