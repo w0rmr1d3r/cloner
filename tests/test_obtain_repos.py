@@ -2,6 +2,7 @@ import responses
 from _pytest.fixtures import fixture
 from _pytest.python_api import raises
 from requests import HTTPError
+from responses import matchers
 
 from cloner.obtain_repos import obtain_repos
 from cloner.repository import Repository
@@ -16,7 +17,7 @@ def github_organization() -> str:
 def github_response_one_repo():
     return [
         {
-            "id": 1296269,
+            "id": 1234567,
             "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
             "name": "Hello-World",
             "full_name": "octocat/Hello-World",
@@ -230,7 +231,20 @@ def test_obtain_repos_retrieves_one_repo_and_puts_it_in_the_queue(
     github_organization, queue_lock, github_response_one_repo, repository_list_queue
 ):
     github_url = f"https://api.github.com/orgs/{github_organization}/repos"
-    responses.get(github_url, json=github_response_one_repo, status=200)
+    responses.get(
+        github_url,
+        json=github_response_one_repo,
+        status=200,
+        match=[
+            matchers.query_param_matcher({"per_page": 100}),
+            matchers.header_matcher(
+                {
+                    "Accept": "application/vnd.github.v3+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                }
+            ),
+        ],
+    )
 
     expected_repository_in_queue = Repository(
         clone_url="https://github.com/octocat/Hello-World.git",
@@ -262,6 +276,16 @@ def test_obtain_repos_with_token_retrieves_one_public_repo_and_one_private_repo_
         github_url,
         json=github_response_one_repo + github_response_one_private_repo,
         status=200,
+        match=[
+            matchers.query_param_matcher({"per_page": 100}),
+            matchers.header_matcher(
+                {
+                    "Accept": "application/vnd.github.v3+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                    "Authorization": "token random_token",
+                }
+            ),
+        ],
     )
 
     expected_public_repository_in_queue = Repository(
@@ -293,7 +317,20 @@ def test_obtain_repos_raises_exception_if_organization_is_not_found(
     queue_lock, not_found_organization_response, repository_list_queue
 ):
     github_url = "https://api.github.com/orgs/NOTANORG/repos"
-    responses.get(github_url, json=not_found_organization_response, status=404)
+    responses.get(
+        github_url,
+        json=not_found_organization_response,
+        status=404,
+        match=[
+            matchers.query_param_matcher({"per_page": 100}),
+            matchers.header_matcher(
+                {
+                    "Accept": "application/vnd.github.v3+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                }
+            ),
+        ],
+    )
 
     with raises(HTTPError):
         obtain_repos(
@@ -324,11 +361,29 @@ def test_obtain_repos_can_append_repos_if_there_are_more_than_one_page(
                 '<https://api.github.com/organizations/123456/repos?page=2>; rel="next"',
             )
         ],
+        match=[
+            matchers.query_param_matcher({"per_page": 100}),
+            matchers.header_matcher(
+                {
+                    "Accept": "application/vnd.github.v3+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                }
+            ),
+        ],
     )
     responses.get(
         "https://api.github.com/organizations/123456/repos",
         json=github_response_one_private_repo,
         status=200,
+        match=[
+            matchers.query_param_matcher({"page": 2, "per_page": 100}),
+            matchers.header_matcher(
+                {
+                    "Accept": "application/vnd.github.v3+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                }
+            ),
+        ],
     )
 
     expected_public_repository_in_queue = Repository(

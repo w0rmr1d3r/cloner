@@ -27,4 +27,4 @@ def clone_repos(number_of_threads: int, repos_to_clone: list[list[Repository]]) 
 
     for process in list_of_processes:
         process.join()
-    logger.debug("All processes joined")
+    logger.debug("All cloner processes joined")
