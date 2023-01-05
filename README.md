@@ -12,7 +12,6 @@ A tool to clone efficiently all the repos in an organization
 [![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)](https://plant.treeware.earth/w0rmr1d3r/cloner)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
 
-
 ## Install
 
 ```bash
@@ -36,6 +35,12 @@ Options:
   --logging [ERROR|WARNING|INFO|DEBUG]
                                   Logging level  [default: INFO]
   --help                          Show this message and exit.
+```
+
+### Example
+
+```bash
+python cloner --threads 8 GITHUB_ORGANIZATION
 ```
 
 ## Contributing
