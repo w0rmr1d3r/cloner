@@ -36,7 +36,9 @@ def obtain_repos(
 
     while "next" in response.links.keys():
         logger.debug("Keep calling GitHub")
-        response = requests.get(response.links["next"]["url"], headers=headers)
+        response = requests.get(
+            response.links["next"]["url"], headers=headers, params=params
+        )
         json_response.extend(response.json())
 
     logger.debug("Finished calling GitHub")
