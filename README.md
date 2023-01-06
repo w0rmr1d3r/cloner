@@ -7,7 +7,6 @@ A tool to clone efficiently all the repos in an organization
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wr-cloner)
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
-[![Known Vulnerabilities](https://snyk.io/test/github/w0rmr1d3r/cloner/badge.svg)](https://snyk.io/test/github/w0rmr1d3r/cloner)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
 
 ## Install
@@ -44,8 +43,6 @@ python cloner --threads 8 GITHUB_ORGANIZATION
 ## Contributing
 
 Check the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1?fullscreen=true)
 
 ## Security
 
