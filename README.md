@@ -7,7 +7,6 @@ A tool to clone efficiently all the repos in an organization
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wr-cloner)
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
-[![Treeware (Trees)](https://img.shields.io/treeware/trees/w0rmr1d3r/cloner)](https://plant.treeware.earth/w0rmr1d3r/cloner)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
 
 ## Install
@@ -52,12 +51,6 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 ## License
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
-
-## Treeware
-
-This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a
-tree**](https://plant.treeware.earth/w0rmr1d3r/cloner) to thank us for our work. By contributing to the Treeware forest
-you’ll be creating employment for local families and restoring wildlife habitats.
 
 ## Other & Troubleshooting
 
