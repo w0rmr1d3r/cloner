@@ -47,8 +47,6 @@ python cloner --threads 8 GITHUB_ORGANIZATION
 
 Check the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
-Current status of the project -> [here](https://github.com/w0rmr1d3r/cloner/projects/1?fullscreen=true)
-
 ## Security
 
 Follow the instructions in the [SECURITY.md](SECURITY.md) file.
