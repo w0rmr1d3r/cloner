@@ -35,7 +35,7 @@ Programming Language :: Python :: 3.11
 """
 
 # About Python versions. Supported 3.9 and above
-# If supporting newer versions, update CI, coverage and classifiers
+# If supporting newer versions, update CI and classifiers
 # If minimum version supported changes, update CI, coverage, classifiers, setup and release.
 
 setup(
