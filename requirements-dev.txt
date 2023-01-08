@@ -47,7 +47,7 @@ pep517==0.13.0
     # via build
 pip-tools==6.12.1
     # via wr-cloner (setup.py)
-platformdirs==2.6.0
+platformdirs==2.6.2
     # via black
 pluggy==1.0.0
     # via pytest
