@@ -14,11 +14,13 @@ name: "CodeQL"
 on:
   push:
     branches: [ "master" ]
-  pull_request:
+  # Won't analyze on PRs since it takes a long time to complete.
+  # But will keep when pushing to master and scheduled
+  # pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "master" ]
+    # branches: [ "master" ]
   schedule:
-    - cron: '00 8 1 * *'
+    - cron: '00 8 1 * *' # 8am UTC the first day of the month
 
 jobs:
   analyze:
