@@ -20,13 +20,18 @@ _Yes, it's called **wr-cloner** in PyPi, since **cloner** was already taken :sad
 ## Usage
 
 ```text
-Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
+Usage: python -m cloner [OPTIONS] GITHUB_ORGANIZATION
 
   Clones all visible repositories for a given organization.
 
 Options:
   --version                       Show the version and exit.
-  --token TEXT                    GitHub token to read private repos.
+  --token TEXT                    GitHub token to read private repos. This
+                                  parameter is needed when cloning from an
+                                  GitHub Enterprise server.
+  --ghe TEXT                      GitHub Enterprise URL. It needs the
+                                  GITHUB_ORGANIZATION parameter to clone repos
+                                  from there and the TOKEN option as well.
   --threads INTEGER               Number of threads and processes to use.
                                   [default: 4]
   --logging [ERROR|WARNING|INFO|DEBUG]
@@ -37,7 +42,11 @@ Options:
 ### Example
 
 ```bash
+# For github.com
 python cloner --threads 8 GITHUB_ORGANIZATION
+
+# For GHE
+python cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
 ```
 
 ## Contributing
