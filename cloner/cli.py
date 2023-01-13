@@ -102,10 +102,3 @@ def cli(
         clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
 
         logging.info("Repos cloned!")
-
-
-# can this be deleted?
-if __name__ == "__main__":
-    cli()
-
-# todo -> https://stackoverflow.com/questions/11436502/closing-all-threads-with-a-keyboard-interrupt
