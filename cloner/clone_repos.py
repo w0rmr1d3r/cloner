@@ -1,4 +1,5 @@
 import logging
+from typing import Optional
 
 from cloner.cloner_process import ClonerProcess
 from cloner.repository import Repository
@@ -6,7 +7,11 @@ from cloner.repository import Repository
 logger = logging.getLogger(__file__)
 
 
-def clone_repos(number_of_threads: int, repos_to_clone: list[list[Repository]]) -> None:
+def clone_repos(
+    number_of_threads: int,
+    repos_to_clone: list[list[Repository]],
+    clone_path: Optional[str] = None,
+) -> None:
     """
     For each given number_of_threads, it creates a ClonerProcess that receives the list in repos_to_clone at that
     the same position.
@@ -19,7 +24,9 @@ def clone_repos(number_of_threads: int, repos_to_clone: list[list[Repository]]) 
     logger.debug(f"Creating processes to clone repos threads={number_of_threads}")
     for i in range(number_of_threads):
         try:
-            process = ClonerProcess(repos_to_clone=repos_to_clone[i], process_id=i)
+            process = ClonerProcess(
+                repos_to_clone=repos_to_clone[i], process_id=i, clone_path=clone_path
+            )
             list_of_processes.append(process)
             process.start()
         except IndexError:
