@@ -36,7 +36,16 @@ def setup_logging(level: str) -> None:
     "token",
     type=str,
     default=None,
-    help="GitHub token to read private repos.",
+    help="GitHub token to read private repos. This parameter is needed when cloning from an GitHub Enterprise server.",
+    show_default=True,
+)
+@click.option(
+    "--ghe",
+    "github_enterprise",
+    type=str,
+    default=None,
+    help="GitHub Enterprise URL. "
+    "It needs the GITHUB_ORGANIZATION parameter to clone repos from there and the TOKEN option as well.",
     show_default=True,
 )
 @click.option(
@@ -55,7 +64,13 @@ def setup_logging(level: str) -> None:
     help="Logging level",
     show_default=True,
 )
-def cli(github_organization: str, token: str, threads: int, logging_level: str) -> None:
+def cli(
+    github_organization: str,
+    token: str,
+    github_enterprise: str,
+    threads: int,
+    logging_level: str,
+) -> None:
     """Clones all visible repositories for a given organization."""
     setup_logging(level=logging_level)
 
@@ -67,6 +82,7 @@ def cli(github_organization: str, token: str, threads: int, logging_level: str) 
             github_token=token,
             queue_lock=repository_list_queue_lock,
             repo_queue=repository_list_queue,
+            ghe=github_enterprise,
         )
     except HTTPError as e:
         logging.error("An error has occurred while obtaining repos", exc_info=e)
