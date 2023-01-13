@@ -1,6 +1,7 @@
 import logging
 import queue
 import threading
+from typing import Optional
 
 import requests
 
@@ -11,7 +12,7 @@ logger = logging.getLogger(__file__)
 
 def obtain_repos(
     github_organization: str,
-    github_token: str,
+    github_token: Optional[str],
     queue_lock: threading.Lock,
     repo_queue: queue.Queue,
 ) -> None:
