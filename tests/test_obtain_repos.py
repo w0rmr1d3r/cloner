@@ -4,7 +4,7 @@ from _pytest.python_api import raises
 from requests import HTTPError
 from responses import matchers
 
-from cloner.obtain_repos import obtain_repos, TokenNotFoundForGHEException
+from cloner.obtain_repos import TokenNotFoundForGHEException, obtain_repos
 from cloner.repository import Repository
 
 
@@ -263,7 +263,8 @@ def github_response_enterprise_repo():
             "assignees_url": "https://api.private.github.com/repos/octocat/Hello-World/assignees{/user}",
             "blobs_url": "https://api.private.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
             "branches_url": "https://api.private.github.com/repos/octocat/Hello-World/branches{/branch}",
-            "collaborators_url": "https://api.private.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+            "collaborators_url": "https://api.private.github.com/repos/octocat/Hello-World"
+            "/collaborators{/collaborator}",
             "comments_url": "https://api.private.github.com/repos/octocat/Hello-World/comments{/number}",
             "commits_url": "https://api.private.github.com/repos/octocat/Hello-World/commits{/sha}",
             "compare_url": "https://api.private.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
@@ -514,7 +515,10 @@ def test_obtain_repos_can_append_repos_if_there_are_more_than_one_page(
 
 @responses.activate
 def test_obtain_repos_from_ghe_retrieves_one_repo_and_puts_it_in_the_queue(
-    github_organization, queue_lock, github_response_enterprise_repo, repository_list_queue
+    github_organization,
+    queue_lock,
+    github_response_enterprise_repo,
+    repository_list_queue,
 ):
     github_url = f"https://private.ghe.com/api/v3/orgs/{github_organization}/repos"
     token = "random_token"
@@ -544,7 +548,7 @@ def test_obtain_repos_from_ghe_retrieves_one_repo_and_puts_it_in_the_queue(
         github_token=token,
         queue_lock=queue_lock,
         repo_queue=repository_list_queue,
-        ghe="private.ghe.com"
+        ghe="private.ghe.com",
     )
 
     assert len(repository_list_queue.queue) == 1
@@ -560,6 +564,6 @@ def test_obtain_repos_raises_exception_if_token_is_none_when_cloning_from_ghe(
             github_token=None,
             queue_lock=queue_lock,
             repo_queue=repository_list_queue,
-            ghe="123"
+            ghe="123",
         )
     assert len(repository_list_queue.queue) == 0
