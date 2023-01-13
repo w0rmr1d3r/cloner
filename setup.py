@@ -17,7 +17,7 @@ dev_requires = [
     "faker>=12.0.1",
     "flake8>=6.0.0",
     "isort>=5.10.0",
-    "pip-tools~=6.5",
+    "pip-tools>=6.5.0",
     "pytest>=6.2.5",
     "responses>=0.20.0",
 ]
