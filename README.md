@@ -20,7 +20,7 @@ _Yes, it's called **wr-cloner** in PyPi, since **cloner** was already taken :sad
 ## Usage
 
 ```text
-Usage: python -m cloner [OPTIONS] GITHUB_ORGANIZATION
+Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
 
   Clones all visible repositories for a given organization.
 
@@ -41,14 +41,14 @@ Options:
   --help                          Show this message and exit.
 ```
 
-### Example
+### Examples
 
 ```bash
-# For github.com
-python cloner --threads 8 GITHUB_ORGANIZATION
+# For github.com with 8 threads
+cloner --threads 8 GITHUB_ORGANIZATION
 
 # For GHE
-python cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
+cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
 ```
 
 ## Contributing
