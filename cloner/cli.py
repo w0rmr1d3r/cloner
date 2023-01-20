@@ -64,12 +64,21 @@ def setup_logging(level: str) -> None:
     help="Logging level",
     show_default=True,
 )
+@click.option(
+    "--path",
+    "clone_path",
+    type=str,
+    default=None,
+    help="Sets a path where to clone the repositories (eg: ./another/path/)",
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
     github_enterprise: str,
     threads: int,
     logging_level: str,
+    clone_path: str,
 ) -> None:
     """Clones all visible repositories for a given organization."""
     setup_logging(level=logging_level)
@@ -99,7 +108,11 @@ def cli(
 
         logging.info("Cloning repos...")
 
-        clone_repos(number_of_threads=threads, repos_to_clone=repos_to_clone)
+        clone_repos(
+            number_of_threads=threads,
+            repos_to_clone=repos_to_clone,
+            clone_path=clone_path,
+        )
 
         logging.info("Repos cloned!")
 

@@ -36,6 +36,8 @@ Options:
                                   [default: 4]
   --logging [ERROR|WARNING|INFO|DEBUG]
                                   Logging level  [default: INFO]
+  --path TEXT                     Sets a path where to clone the repositories
+                                  (eg: ./another/path/)
   --help                          Show this message and exit.
 ```
 
