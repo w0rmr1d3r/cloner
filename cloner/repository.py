@@ -11,9 +11,5 @@ class Repository:
 
     def __eq__(self, other):
         if isinstance(other, Repository):
-            return (
-                self.name == other.name
-                and self.clone_url == other.clone_url
-                and self.repo_id == other.repo_id
-            )
+            return self.name == other.name and self.clone_url == other.clone_url and self.repo_id == other.repo_id
         return False

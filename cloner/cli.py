@@ -23,9 +23,7 @@ LOGGING_LEVELS = {
 
 def setup_logging(level: str) -> None:
     """Logging setup and configuration."""
-    logging.basicConfig(
-        level=LOGGING_LEVELS[level], format="%(levelname)s - %(message)s"
-    )
+    logging.basicConfig(level=LOGGING_LEVELS[level], format="%(levelname)s - %(message)s")
 
 
 @click.command()
