@@ -11,6 +11,7 @@ def clone_repos(
     number_of_threads: int,
     repos_to_clone: list[list[Repository]],
     clone_path: Optional[str] = None,
+    git_options: Optional[str] = None,
 ) -> None:
     """
     For each given number_of_threads, it creates a ClonerProcess that receives the list in repos_to_clone at that
@@ -25,7 +26,10 @@ def clone_repos(
     for i in range(number_of_threads):
         try:
             process = ClonerProcess(
-                repos_to_clone=repos_to_clone[i], process_id=i, clone_path=clone_path
+                repos_to_clone=repos_to_clone[i],
+                process_id=i,
+                clone_path=clone_path,
+                git_options=git_options,
             )
             list_of_processes.append(process)
             process.start()
