@@ -24,9 +24,7 @@ def clone_repos(
     logger.debug(f"Creating processes to clone repos threads={number_of_threads}")
     for i in range(number_of_threads):
         try:
-            process = ClonerProcess(
-                repos_to_clone=repos_to_clone[i], process_id=i, clone_path=clone_path
-            )
+            process = ClonerProcess(repos_to_clone=repos_to_clone[i], process_id=i, clone_path=clone_path)
             list_of_processes.append(process)
             process.start()
         except IndexError:

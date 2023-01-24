@@ -39,9 +39,7 @@ def split_queue(
     exit_flag = True
 
     for t in thread_list:
-        logger.debug(
-            f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}"
-        )
+        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
         t.join()
         repos_to_clone.append(t.repos_to_clone_list)
 
@@ -60,9 +58,7 @@ class SplitterThread(threading.Thread):
     def run(self):
         logger.debug(f"Starting thread -> {self.thread_id}")
         self.process_repo()
-        logger.debug(
-            f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos"
-        )
+        logger.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
         logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:

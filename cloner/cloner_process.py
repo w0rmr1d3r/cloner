@@ -31,6 +31,4 @@ class ClonerProcess(Process):
     def run(self):
         """Clones each repo given in the constructor."""
         for repo in self.repos_list:
-            self._execute_system_command(
-                command=f"git clone --quiet {repo.clone_url} {self.clone_path}{repo.name}"
-            )
+            self._execute_system_command(command=f"git clone --quiet {repo.clone_url} {self.clone_path}{repo.name}")

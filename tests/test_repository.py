@@ -3,10 +3,7 @@ from cloner.repository import Repository
 
 def test_repository_as_string(random_repository):
     name = random_repository.name
-    assert (
-        random_repository.__str__()
-        == f"Repo: {name} URL: https://github.com/organization/{name}.git"
-    )
+    assert random_repository.__str__() == f"Repo: {name} URL: https://github.com/organization/{name}.git"
 
 
 def test_repository_can_be_compared(faker):
