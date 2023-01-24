@@ -56,9 +56,7 @@ def split_queue(
     for t in thread_list:
         logger.debug(f"About to join thread {t}")
         t.join()
-        logger.debug(
-            f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}"
-        )
+        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
         repos_to_clone.append(t.repos_to_clone_list)
 
     reset_exit_flag()

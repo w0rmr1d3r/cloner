@@ -51,9 +51,7 @@ def test_threads_below_1_raises_error(
         )
 
 
-def test_empty_queue_returns_empty_list_of_lists_equal_to_threads(
-    queue_lock, repository_list_queue
-):
+def test_empty_queue_returns_empty_list_of_lists_equal_to_threads(queue_lock, repository_list_queue):
     result = split_queue(
         number_of_threads=3,
         repository_queue=repository_list_queue,
