@@ -41,6 +41,9 @@ Options:
                                   Logging level  [default: INFO]
   --path TEXT                     Sets a path where to clone the repositories
                                   (eg: ./another/path/)
+  --git-options TEXT              Add options to the clone command (eg: --git-
+                                  options "--depth 1"). By default, clones
+                                  quietly (--quiet).
   --help                          Show this message and exit.
 ```
 
@@ -52,6 +55,9 @@ cloner --threads 8 GITHUB_ORGANIZATION
 
 # For GHE, default threads
 cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
+
+# Cloning with options
+cloner --git-options "--depth 1" GITHUB_ORGANIZATION
 
 # With the repo cloned, no options
 python cloner GITHUB_ORGANIZATION

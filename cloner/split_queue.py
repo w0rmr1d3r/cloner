@@ -78,9 +78,7 @@ class SplitterThread(threading.Thread):
     def run(self):
         logger.debug(f"Starting thread -> {self.thread_id}")
         self.process_repo()
-        logger.debug(
-            f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos"
-        )
+        logger.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
         logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
