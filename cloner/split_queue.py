@@ -10,7 +10,20 @@ exit_flag = False
 repository_list_queue_lock = None
 repository_list_queue = None
 
-# todo - all this class needs tests
+
+def set_exit_flag():
+    global exit_flag
+    exit_flag = True
+
+
+def reset_exit_flag():
+    global exit_flag
+    exit_flag = False
+
+
+class ThreadsBelowOne(Exception):
+    def __init__(self, message="Threads declared should be higher than 0."):
+        super().__init__(message)
 
 
 def split_queue(
@@ -18,7 +31,10 @@ def split_queue(
     repository_queue: queue.Queue,
     repository_queue_lock: threading.Lock(),
 ) -> list[list[Repository]]:
-    """Splits the queue of repos into a list of repo lists, one per thread"""
+    """Splits the queue of repos into a list of lists of repos, one per thread"""
+
+    if number_of_threads < 1:
+        raise ThreadsBelowOne
 
     global repository_list_queue_lock, repository_list_queue
     repository_list_queue_lock = repository_queue_lock
@@ -35,13 +51,15 @@ def split_queue(
     while not repository_queue.empty():
         pass
 
-    global exit_flag
-    exit_flag = True
+    set_exit_flag()
 
     for t in thread_list:
-        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
+        logger.debug(f"About to join thread {t}")
         t.join()
+        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
         repos_to_clone.append(t.repos_to_clone_list)
+
+    reset_exit_flag()
 
     return repos_to_clone
 

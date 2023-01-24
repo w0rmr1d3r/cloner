@@ -19,7 +19,7 @@ def test_cloner_process_can_clone_a_repo(mock_execute_system_command, random_rep
 
 @patch.object(ClonerProcess, "_execute_system_command")
 def test_cloner_process_wont_clone_if_given_list_of_repositories_is_empty(
-    mock_execute_system_command, random_repository
+    mock_execute_system_command,
 ):
     mock_execute_system_command.return_value = 0
 

@@ -19,6 +19,9 @@ _Yes, it's called **wr-cloner** in PyPi, since **cloner** was already taken :sad
 
 ## Usage
 
+_Note: If using cloner after cloning the project and not a PyPi package, add "python" at the start.
+There's an example of that in the examples section._
+
 ```text
 Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
 
@@ -50,11 +53,14 @@ Options:
 # For github.com with 8 threads
 cloner --threads 8 GITHUB_ORGANIZATION
 
-# For GHE
+# For GHE, default threads
 cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
 
 # Cloning with options
 cloner --git-options "--depth 1" GITHUB_ORGANIZATION
+
+# With the repo cloned, no options
+python cloner GITHUB_ORGANIZATION
 ```
 
 ## Contributing
