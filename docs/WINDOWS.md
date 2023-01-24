@@ -1,6 +1,6 @@
 # Windows Usage and Support
 
-Support for Windows is no longer active.
+Support for Windows is limited.
 
 ## Usage
 ```bash
