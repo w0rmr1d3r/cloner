@@ -70,6 +70,14 @@ def setup_logging(level: str) -> None:
     help="Sets a path where to clone the repositories (eg: ./another/path/)",
     show_default=True,
 )
+@click.option(
+    "--git-options",
+    "git_options",
+    type=str,
+    default=None,
+    help='Add options to the clone command (eg: --git-options "--depth 1"). By default, clones quietly (--quiet).',
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
@@ -77,6 +85,7 @@ def cli(
     threads: int,
     logging_level: str,
     clone_path: str,
+    git_options: str,
 ) -> None:
     """Clones all visible repositories for a given organization."""
     setup_logging(level=logging_level)
@@ -110,6 +119,7 @@ def cli(
             number_of_threads=threads,
             repos_to_clone=repos_to_clone,
             clone_path=clone_path,
+            git_options=git_options,
         )
 
         logging.info("Repos cloned!")
