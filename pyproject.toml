@@ -6,3 +6,9 @@ exclude = '''
   | venv
 )/
 '''
+
+[tool.pylint.'MESSAGES CONTROL']
+# C0114 - missing module docstring - does not apply (yet)
+disable = "C0114"
+fail-under = 8
+max-line-length = 120

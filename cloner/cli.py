@@ -100,8 +100,8 @@ def cli(
             repo_queue=repository_list_queue,
             ghe=github_enterprise,
         )
-    except HTTPError as e:
-        logging.error("An error has occurred while obtaining repos", exc_info=e)
+    except HTTPError:
+        logging.error("An error has occurred while obtaining repos", exc_info=True)
 
     total_repos_to_clone = repository_list_queue.qsize()
     logging.info(f"Total repos to clone: {total_repos_to_clone}")
