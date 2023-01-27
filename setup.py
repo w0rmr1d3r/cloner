@@ -18,6 +18,7 @@ dev_requires = [
     "flake8>=6.0.0",
     "isort>=5.10.0",
     "pip-tools>=6.5.0",
+    "pylint>=2.15.10",
     "pytest>=6.2.5",
     "responses>=0.20.0",
 ]

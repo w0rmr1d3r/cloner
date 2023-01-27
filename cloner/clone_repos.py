@@ -35,7 +35,6 @@ def clone_repos(
             process.start()
         except IndexError:
             logger.warning("IndexError has occurred when passing repos to ClonerProcess")
-            pass
 
     for process in list_of_processes:
         process.join()
