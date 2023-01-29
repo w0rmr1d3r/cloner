@@ -1,3 +1,67 @@
+[build-system]
+requires = ["setuptools>=65.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wr-cloner"
+# Make sure this matches the description in GitHub and in the README.md
+description = "A tool to clone efficiently all the repos in an organization"
+readme = "README.md"
+authors = [{ "name" = "w0rmr1d3r" }]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+# Make sure this matches the keywords in GitHub
+keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
+# Make sure this matches the version in __version__.py
+version = "1.9.0"
+# Supported Python 3.9 and above
+# If supporting newer versions, update ->  CI and classifiers
+# If minimum version supported changes, update -> CI, coverage, classifiers, setup, release, contributing and security.
+requires-python = ">=3.9.0"
+
+# Always try to be compatible with these versions and above
+dependencies = [
+    "click>=8.0.3",
+    "requests>=2.27.1"
+]
+
+[project.optional-dependencies]
+# Always try to be compatible with these versions and above
+dev = [
+    "black>=22.3.0",
+    "coverage>=6.3.2",
+    "faker>=12.0.1",
+    "flake8>=6.0.0",
+    "isort>=5.10.0",
+    "pip-tools>=6.5.0",
+    "pylint>=2.15.10",
+    "pytest>=6.2.5",
+    "responses>=0.20.0"
+]
+
+[project.scripts]
+cloner = "cloner.cli:cli"
+
+[project.urls]
+"Homepage" = "https://github.com/w0rmr1d3r/cloner"
+"Repository" = "https://github.com/w0rmr1d3r/cloner"
+"Bug Tracker" = "https://github.com/w0rmr1d3r/cloner/issues"
+"Documentation" = "https://github.com/w0rmr1d3r/cloner"
+"Changelog" = "https://github.com/w0rmr1d3r/cloner/releases"
+
+[tool.setuptools]
+packages = ["cloner"]
+
 [tool.black]
 line-length = 120
 exclude = '''
@@ -6,6 +70,13 @@ exclude = '''
   | venv
 )/
 '''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+line_length = 120
 
 [tool.pylint.'MESSAGES CONTROL']
 # C0114 - missing module docstring - does not apply (yet)
