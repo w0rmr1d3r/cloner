@@ -24,7 +24,7 @@ classifiers = [
 keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
 # Make sure this matches the version in __version__.py
 version = "1.9.0"
-# About Python versions. Supported 3.9 and above
+# Supported Python 3.9 and above
 # If supporting newer versions, update ->  CI and classifiers
 # If minimum version supported changes, update -> CI, coverage, classifiers, setup, release, contributing and security.
 requires-python = ">=3.9.0"
@@ -36,7 +36,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# For local development, use those majors for now
+# Always try to be compatible with these versions and above
 dev = [
     "black>=22.3.0",
     "coverage>=6.3.2",
