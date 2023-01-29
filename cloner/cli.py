@@ -7,6 +7,7 @@ from requests import HTTPError
 
 from cloner.__version__ import __version__
 from cloner.clone_repos import clone_repos
+from cloner.cpu_config import inform_cpu
 from cloner.obtain_repos import obtain_repos
 from cloner.split_queue import split_queue
 
@@ -51,7 +52,8 @@ def setup_logging(level: str) -> None:
     "threads",
     type=int,
     default=4,
-    help="Number of threads and processes to use.",
+    help="Number of threads and processes to use. "
+    "In future versions, the default will be the number of cores of the system running cloner.",
     show_default=True,
 )
 @click.option(
@@ -87,8 +89,12 @@ def cli(
     clone_path: str,
     git_options: str,
 ) -> None:
-    """Clones all visible repositories for a given organization."""
+    """
+    Runs cloner as a cli app.
+    """
     setup_logging(level=logging_level)
+
+    inform_cpu(selected_threads=threads)
 
     logging.info(f"Cloning repos for: {github_organization}")
 

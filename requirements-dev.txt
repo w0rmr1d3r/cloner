@@ -61,6 +61,8 @@ platformdirs==2.6.2
     #   pylint
 pluggy==1.0.0
     # via pytest
+psutil==5.9.4
+    # via wr-cloner (pyproject.toml)
 pycodestyle==2.10.0
     # via flake8
 pyflakes==3.0.1
