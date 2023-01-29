@@ -9,7 +9,7 @@ astroid==2.13.3
 attrs==22.2.0
     # via pytest
 black==22.12.0
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 build==0.10.0
     # via pip-tools
 certifi==2022.12.7
@@ -20,17 +20,17 @@ click==8.1.3
     # via
     #   black
     #   pip-tools
-    #   wr-cloner (setup.py)
+    #   wr-cloner (pyproject.toml)
 coverage==7.0.5
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 dill==0.3.6
     # via pylint
 exceptiongroup==1.1.0
     # via pytest
 faker==16.6.0
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 flake8==6.0.0
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 idna==3.4
     # via requests
 iniconfig==2.0.0
@@ -38,7 +38,7 @@ iniconfig==2.0.0
 isort==5.11.4
     # via
     #   pylint
-    #   wr-cloner (setup.py)
+    #   wr-cloner (pyproject.toml)
 lazy-object-proxy==1.9.0
     # via astroid
 mccabe==0.7.0
@@ -54,7 +54,7 @@ packaging==23.0
 pathspec==0.10.3
     # via black
 pip-tools==6.12.1
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 platformdirs==2.6.2
     # via
     #   black
@@ -66,19 +66,19 @@ pycodestyle==2.10.0
 pyflakes==3.0.1
     # via flake8
 pylint==2.15.10
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
 pytest==7.2.1
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
 requests==2.28.2
     # via
     #   responses
-    #   wr-cloner (setup.py)
+    #   wr-cloner (pyproject.toml)
 responses==0.22.0
-    # via wr-cloner (setup.py)
+    # via wr-cloner (pyproject.toml)
 six==1.16.0
     # via python-dateutil
 toml==0.10.2
