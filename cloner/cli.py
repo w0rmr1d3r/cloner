@@ -105,8 +105,8 @@ def cli(
     """
     setup_logging(level=logging_level)
 
-    # We override the value of threads if max_threads is declared
-    if max_threads:
+    # We override the value of threads if max_threads is declared and if we can retrieve the number of cores
+    if max_threads and get_system_cores() != -1:
         threads = get_system_cores()
 
     inform_cpu(selected_threads=threads)
