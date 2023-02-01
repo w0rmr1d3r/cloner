@@ -101,13 +101,13 @@ def cli(
     """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
 
+    print_banner()
+
     # We override the value of threads if max_threads is declared and if we can retrieve the number of cores
     if max_threads and get_system_cores() != -1:
         threads = get_system_cores()
 
     inform_cpu(selected_threads=threads)
-
-    print_banner()
 
     logging.info(f"Cloning repos for: {github_organization}")
 
