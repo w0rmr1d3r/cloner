@@ -3,7 +3,7 @@ from unittest.mock import patch
 from cloner.cloner_process import ClonerProcess
 
 
-@patch.object(ClonerProcess, "_execute_system_command")
+@patch.object(ClonerProcess, "_execute_system_call")
 def test_cloner_process_can_clone_a_repo(mock_execute_system_command, random_repository):
     mock_execute_system_command.return_value = 0
     repository_list = [random_repository]
@@ -17,7 +17,7 @@ def test_cloner_process_can_clone_a_repo(mock_execute_system_command, random_rep
     )
 
 
-@patch.object(ClonerProcess, "_execute_system_command")
+@patch.object(ClonerProcess, "_execute_system_call")
 def test_cloner_process_wont_clone_if_given_list_of_repositories_is_empty(
     mock_execute_system_command,
 ):
@@ -30,7 +30,7 @@ def test_cloner_process_wont_clone_if_given_list_of_repositories_is_empty(
     mock_execute_system_command.assert_not_called()
 
 
-@patch.object(ClonerProcess, "_execute_system_command")
+@patch.object(ClonerProcess, "_execute_system_call")
 def test_cloner_process_can_clone_a_repo_in_a_different_path(mock_execute_system_command, random_repository):
     mock_execute_system_command.return_value = 0
     repository_list = [random_repository]
@@ -44,7 +44,7 @@ def test_cloner_process_can_clone_a_repo_in_a_different_path(mock_execute_system
     )
 
 
-@patch.object(ClonerProcess, "_execute_system_command")
+@patch.object(ClonerProcess, "_execute_system_call")
 def test_cloner_process_can_clone_a_repo_with_clone_options(mock_execute_system_command, random_repository):
     mock_execute_system_command.return_value = 0
     repository_list = [random_repository]
