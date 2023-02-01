@@ -45,15 +45,16 @@ class ClonerProcess(Process):
 
     @staticmethod
     def _execute_system_call(command: str) -> int:
-        """
-        Proceeds to call the OS with the given command.
+        """Proceeds to call the OS with the given command.
+
         It returns the return code of the given command.
         """
         ret_code = call(command, shell=True)
         return ret_code
 
     def run(self):
-        """Clones each repo from the repos_to_clone list given in the constructor."""
+        """Clones each repo from the repos_to_clone list given in the
+        constructor."""
         for repo in self.repos_list:
             self._execute_system_call(
                 command=f"git clone {self.git_options}{repo.clone_url} {self.clone_path}{repo.name}"
