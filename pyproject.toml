@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wr-cloner"
-# Make sure this matches the description in GitHub and in the README.md
+# Make sure this matches the description in GitHub, in the README.md and in the cli.
 description = "A tool to clone efficiently all the repos in an organization"
 readme = "README.md"
 authors = [{ "name" = "w0rmr1d3r" }]

@@ -25,7 +25,7 @@ There's an example of that in the examples section._
 ```text
 Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
 
-  Clones all visible repositories for a given organization.
+  A tool to clone efficiently all the repos in an organization
 
 Options:
   --version                       Show the version and exit.
@@ -35,8 +35,9 @@ Options:
   --ghe TEXT                      GitHub Enterprise URL. It needs the
                                   GITHUB_ORGANIZATION parameter to clone repos
                                   from there and the TOKEN option as well.
-  --threads INTEGER               Number of threads and processes to use.
-                                  [default: 4]
+  --threads INTEGER               Number of threads and processes to use. For
+                                  maximum threads and processes on the system,
+                                  use '--max-threads'  [default: 4]
   --logging [ERROR|WARNING|INFO|DEBUG]
                                   Logging level  [default: INFO]
   --path TEXT                     Sets a path where to clone the repositories
@@ -44,6 +45,9 @@ Options:
   --git-options TEXT              Add options to the clone command (eg: --git-
                                   options "--depth 1"). By default, clones
                                   quietly (--quiet).
+  --max-threads                   If declared, uses the maximum available
+                                  threads and processes in the system. As per
+                                  physical cores on the system cpu.
   --help                          Show this message and exit.
 ```
 
@@ -52,6 +56,9 @@ Options:
 ```bash
 # For github.com with 8 threads
 cloner --threads 8 GITHUB_ORGANIZATION
+
+# For github.com with the maximum threads on the system running
+cloner --max-threads GITHUB_ORGANIZATION
 
 # For GHE, default threads
 cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION

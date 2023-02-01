@@ -8,6 +8,7 @@ from requests import HTTPError
 from cloner.__version__ import __version__
 from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
+from cloner.cpu_config import get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
 from cloner.split_queue import split_queue
 
@@ -49,7 +50,8 @@ def setup_logging(level: str) -> None:
     "threads",
     type=int,
     default=4,
-    help="Number of threads and processes to use.",
+    help="Number of threads and processes to use. "
+    "For maximum threads and processes on the system, use '--max-threads'",
     show_default=True,
 )
 @click.option(
@@ -76,6 +78,16 @@ def setup_logging(level: str) -> None:
     help='Add options to the clone command (eg: --git-options "--depth 1"). By default, clones quietly (--quiet).',
     show_default=True,
 )
+@click.option(
+    "--max-threads",
+    "max_threads",
+    type=bool,
+    is_flag=True,
+    default=False,
+    help="If declared, uses the maximum available threads and processes in the system. "
+    "As per physical cores on the system cpu.",
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
@@ -84,9 +96,16 @@ def cli(
     logging_level: str,
     clone_path: str,
     git_options: str,
+    max_threads: bool,
 ) -> None:
-    """Clones all visible repositories for a given organization."""
+    """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
+
+    # We override the value of threads if max_threads is declared and if we can retrieve the number of cores
+    if max_threads and get_system_cores() != -1:
+        threads = get_system_cores()
+
+    inform_cpu(selected_threads=threads)
 
     print_banner()
 
