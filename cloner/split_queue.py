@@ -12,25 +12,20 @@ REPOSITORY_LIST_QUEUE = None
 
 
 def set_exit_flag():
-    """
-    Will set to `True` the EXIT_FLAG
-    """
+    """Will set to `True` the EXIT_FLAG."""
     global EXIT_FLAG
     EXIT_FLAG = True
 
 
 def reset_exit_flag():
-    """
-    Will reset the EXIT_FLAG back to `False`
-    """
+    """Will reset the EXIT_FLAG back to `False`"""
     global EXIT_FLAG
     EXIT_FLAG = False
 
 
 class ThreadsBelowOne(Exception):
-    """
-    Exception to be thrown when the declared threads to split the queue is below 1
-    """
+    """Exception to be thrown when the declared threads to split the queue is
+    below 1."""
 
     def __init__(self, message="Threads declared should be higher than 0."):
         super().__init__(message)
