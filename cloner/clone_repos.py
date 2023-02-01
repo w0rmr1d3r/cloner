@@ -13,11 +13,11 @@ def clone_repos(
     clone_path: Optional[str] = None,
     git_options: Optional[str] = None,
 ) -> None:
-    """
-    For each given number_of_threads, it creates a ClonerProcess that receives the list in repos_to_clone at that
-    the same position.
-    If there are more number_of_threads than the length of repos_to_clone, it won't create useless Processes.
-    By design, number_of_threads and length of repos_to_clone are equal.
+    """For each given number_of_threads, it creates a ClonerProcess that
+    receives the list in repos_to_clone at that the same position. If there are
+    more number_of_threads than the length of repos_to_clone, it won't create
+    useless Processes. By design, number_of_threads and length of
+    repos_to_clone are equal.
 
     Note: Cannot be tested (yet) since it needs to get os.system mock per process
     """
