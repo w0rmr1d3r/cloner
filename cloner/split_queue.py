@@ -41,7 +41,8 @@ def split_queue(
     repository_queue: queue.Queue,
     repository_queue_lock: threading.Lock(),
 ) -> list[list[Repository]]:
-    """Splits the queue of repos into a list of lists of repos, one per thread"""
+    """Splits the queue of repos into a list of lists of repos, one per
+    thread."""
 
     if number_of_threads < 1:
         raise ThreadsBelowOne
@@ -92,8 +93,9 @@ class SplitterThread(threading.Thread):
         logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
-        """
-        Obtains a repo from the queue and puts it in its list if the mod of the repo identifier equals this thread id.
+        """Obtains a repo from the queue and puts it in its list if the mod of
+        the repo identifier equals this thread id.
+
         Puts the repo back to the queue otherwise.
         """
         # The EXIT_FLAG tell us when it's time to stop working
