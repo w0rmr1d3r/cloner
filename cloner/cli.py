@@ -12,9 +12,6 @@ from cloner.cpu_config import get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
 from cloner.split_queue import split_queue
 
-repository_list_queue_lock = threading.Lock()
-repository_list_queue = queue.Queue()
-
 LOGGING_LEVELS = {
     "ERROR": logging.ERROR,
     "WARNING": logging.WARNING,
@@ -113,6 +110,9 @@ def cli(
     print_banner()
 
     logging.info(f"Cloning repos for: {github_organization}")
+
+    repository_list_queue_lock = threading.Lock()
+    repository_list_queue = queue.Queue()
 
     try:
         obtain_repos(
