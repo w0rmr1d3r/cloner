@@ -96,17 +96,22 @@ class SplitterThread(threading.Thread):
         Obtains a repo from the queue and puts it in its list if the mod of the repo identifier equals this thread id.
         Puts the repo back to the queue otherwise.
         """
-        # todo - add some comments here explaining things
+        # The EXIT_FLAG tell us when it's time to stop working
         while not EXIT_FLAG:
+            # We acquire the lock before checking anything,
+            # this will make working with the queue safe from other threads
             REPOSITORY_LIST_QUEUE_LOCK.acquire()
             if not REPOSITORY_LIST_QUEUE.empty():
+                # If it's not empty, we will get an element from the queue and deal with it
                 repository = REPOSITORY_LIST_QUEUE.get()
                 if repository.repo_id % self.total_threads == self.thread_id:
                     self.repos_to_clone_list.append(repository)
                 else:
                     REPOSITORY_LIST_QUEUE.put(repository)
+                # We release the lock to let other threads work
                 REPOSITORY_LIST_QUEUE_LOCK.release()
             else:
+                # If the queue is empty, we will release the lock, to let other threads work
                 REPOSITORY_LIST_QUEUE_LOCK.release()
 
     def __str__(self):
