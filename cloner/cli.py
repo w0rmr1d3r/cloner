@@ -100,9 +100,7 @@ def cli(
     git_options: str,
     max_threads: bool,
 ) -> None:
-    """
-    A tool to clone efficiently all the repos in an organization
-    """
+    """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
 
     # We override the value of threads if max_threads is declared and if we can retrieve the number of cores
