@@ -11,11 +11,11 @@ A tool to clone efficiently all the repos in an organization
 
 ## Install
 
+_When installing from PyPi, use **wr-cloner**, **cloner** was already taken :sad:_
+
 ```bash
 pip install wr-cloner
 ```
-
-_Yes, it's called **wr-cloner** in PyPi, since **cloner** was already taken :sad:_
 
 ## Usage
 

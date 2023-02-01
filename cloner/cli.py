@@ -6,6 +6,7 @@ import click
 from requests import HTTPError
 
 from cloner.__version__ import __version__
+from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
 from cloner.cpu_config import get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
@@ -28,7 +29,7 @@ def setup_logging(level: str) -> None:
 
 
 @click.command()
-@click.version_option(prog_name="cloner", version=__version__)
+@click.version_option(package_name="wr-cloner", prog_name="cloner", version=__version__)
 @click.argument("github_organization")
 @click.option(
     "--token",
@@ -108,6 +109,8 @@ def cli(
         threads = get_system_cores()
 
     inform_cpu(selected_threads=threads)
+
+    print_banner()
 
     logging.info(f"Cloning repos for: {github_organization}")
 

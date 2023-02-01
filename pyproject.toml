@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65.0.0"]
+requires = ["setuptools>=65.6.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -13,12 +13,18 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Topic :: Security",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: System",
 ]
 # Make sure this matches the keywords in GitHub
 keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
@@ -32,6 +38,7 @@ requires-python = ">=3.9.0"
 # Always try to be compatible with these versions and above
 dependencies = [
     "click>=8.0.3",
+    "Deprecated>=1.2.13",
     "requests>=2.27.1"
 ]
 
