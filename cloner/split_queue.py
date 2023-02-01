@@ -6,22 +6,32 @@ from cloner.repository import Repository
 
 logger = logging.getLogger(__file__)
 
-exit_flag = False
-repository_list_queue_lock = None
-repository_list_queue = None
+EXIT_FLAG = False
+REPOSITORY_LIST_QUEUE_LOCK = None
+REPOSITORY_LIST_QUEUE = None
 
 
 def set_exit_flag():
-    global exit_flag
-    exit_flag = True
+    """
+    Will set to `True` the EXIT_FLAG
+    """
+    global EXIT_FLAG
+    EXIT_FLAG = True
 
 
 def reset_exit_flag():
-    global exit_flag
-    exit_flag = False
+    """
+    Will reset the EXIT_FLAG back to `False`
+    """
+    global EXIT_FLAG
+    EXIT_FLAG = False
 
 
 class ThreadsBelowOne(Exception):
+    """
+    Exception to be thrown when the declared threads to split the queue is below 1
+    """
+
     def __init__(self, message="Threads declared should be higher than 0."):
         super().__init__(message)
 
@@ -36,9 +46,9 @@ def split_queue(
     if number_of_threads < 1:
         raise ThreadsBelowOne
 
-    global repository_list_queue_lock, repository_list_queue
-    repository_list_queue_lock = repository_queue_lock
-    repository_list_queue = repository_queue
+    global REPOSITORY_LIST_QUEUE_LOCK, REPOSITORY_LIST_QUEUE
+    REPOSITORY_LIST_QUEUE_LOCK = repository_queue_lock
+    REPOSITORY_LIST_QUEUE = repository_queue
 
     thread_list = []
     repos_to_clone = []
@@ -53,11 +63,13 @@ def split_queue(
 
     set_exit_flag()
 
-    for t in thread_list:
-        logger.debug(f"About to join thread {t}")
-        t.join()
-        logger.debug(f"Length of thread {t} clone repo list is {len(t.repos_to_clone_list)}")
-        repos_to_clone.append(t.repos_to_clone_list)
+    for splitter_thread in thread_list:
+        logger.debug(f"About to join thread {splitter_thread}")
+        splitter_thread.join()
+        logger.debug(
+            f"Length of thread {splitter_thread} clone repo list is {len(splitter_thread.repos_to_clone_list)}"
+        )
+        repos_to_clone.append(splitter_thread.repos_to_clone_list)
 
     reset_exit_flag()
 
@@ -84,17 +96,18 @@ class SplitterThread(threading.Thread):
         Obtains a repo from the queue and puts it in its list if the mod of the repo identifier equals this thread id.
         Puts the repo back to the queue otherwise.
         """
-        while not exit_flag:
-            repository_list_queue_lock.acquire()
-            if not repository_list_queue.empty():
-                repository = repository_list_queue.get()
+        # todo - add some comments here explaining things
+        while not EXIT_FLAG:
+            REPOSITORY_LIST_QUEUE_LOCK.acquire()
+            if not REPOSITORY_LIST_QUEUE.empty():
+                repository = REPOSITORY_LIST_QUEUE.get()
                 if repository.repo_id % self.total_threads == self.thread_id:
                     self.repos_to_clone_list.append(repository)
                 else:
-                    repository_list_queue.put(repository)
-                repository_list_queue_lock.release()
+                    REPOSITORY_LIST_QUEUE.put(repository)
+                REPOSITORY_LIST_QUEUE_LOCK.release()
             else:
-                repository_list_queue_lock.release()
+                REPOSITORY_LIST_QUEUE_LOCK.release()
 
     def __str__(self):
         return f"Thread: {self.thread_id}"
