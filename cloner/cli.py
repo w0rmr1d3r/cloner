@@ -6,6 +6,7 @@ import click
 from requests import HTTPError
 
 from cloner.__version__ import __version__
+from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
 from cloner.obtain_repos import obtain_repos
 from cloner.split_queue import split_queue
@@ -27,7 +28,7 @@ def setup_logging(level: str) -> None:
 
 
 @click.command()
-@click.version_option(prog_name="cloner", version=__version__)
+@click.version_option(package_name="wr-cloner", prog_name="cloner", version=__version__)
 @click.argument("github_organization")
 @click.option(
     "--token",
@@ -89,6 +90,8 @@ def cli(
 ) -> None:
     """Clones all visible repositories for a given organization."""
     setup_logging(level=logging_level)
+
+    print_banner()
 
     logging.info(f"Cloning repos for: {github_organization}")
 
