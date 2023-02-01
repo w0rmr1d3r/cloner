@@ -7,10 +7,12 @@ install-dev:
 format:
 	isort --float-to-top .
 	black .
+	docformatter --in-place --recursive .
 
 lint:
 	isort --check-only .
 	black --check .
+	docformatter --check --recursive .
 	flake8 .
 
 unit:
