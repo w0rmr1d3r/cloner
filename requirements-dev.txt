@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==2.13.3
+astroid==2.14.1
     # via pylint
 attrs==22.2.0
     # via pytest
@@ -71,7 +71,7 @@ pycodestyle==2.10.0
     # via flake8
 pyflakes==3.0.1
     # via flake8
-pylint==2.15.10
+pylint==2.16.1
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
