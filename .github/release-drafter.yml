@@ -10,6 +10,10 @@ categories:
   - title: 'Patches'
     labels:
       - 'patch'
+  - title: 'Other updates'
+    labels:
+      - 'documentation'
+      - 'enhancement'
   - title: 'Bumps'
     labels:
       - 'bump'
