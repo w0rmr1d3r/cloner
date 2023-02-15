@@ -1,0 +1,30 @@
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
+categories:
+  - title: 'Major changes'
+    labels:
+      - 'major'
+  - title: 'Minor changes'
+    labels:
+      - 'minor'
+  - title: 'Patches'
+    labels:
+      - 'patch'
+  - title: 'Bumps'
+    labels:
+      - 'bump'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: minor
+template: |
+  # Changes
+
+  $CHANGES
