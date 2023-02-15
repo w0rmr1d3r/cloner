@@ -1,7 +1,5 @@
 def banner() -> str:
-    """
-    Returns the banner as a str
-    """
+    """Returns the banner as a str."""
     return """
 ───╔╗
 ───║║
@@ -13,7 +11,5 @@ def banner() -> str:
 
 
 def print_banner():
-    """
-    Prints the banner.
-    """
+    """Prints the banner."""
     print(banner())
