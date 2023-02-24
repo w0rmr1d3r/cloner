@@ -5,11 +5,14 @@ install-dev:
 	pip install -r requirements-dev.txt
 
 format:
+	# run autoflake first, so empty spaces are fixed by other tools
+	autoflake --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -v -r -i cloner/
 	isort --float-to-top .
 	black .
 	docformatter --in-place --recursive .
 
 lint:
+	autoflake --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables --quiet -r -c cloner/
 	isort --check-only .
 	black --check .
 	docformatter --check --recursive .
