@@ -1,15 +1,7 @@
 name-template: '$RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
 categories:
-  - title: 'Major changes'
-    labels:
-      - 'major'
-  - title: 'Minor changes'
-    labels:
-      - 'minor'
-  - title: 'Patches'
-    labels:
-      - 'patch'
+ #todo - add sections for PRs, no major, minor, patch
   - title: 'Other updates'
     labels:
       - 'documentation'
