@@ -45,6 +45,7 @@ dependencies = [
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
 dev = [
+    "autoflake>=2.0.0",
     "black>=22.3.0",
     "coverage>=6.3.2",
     "docformatter>=1.5.1",
