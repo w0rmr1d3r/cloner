@@ -5,6 +5,6 @@ Add here any related issues if applies
 --->
 
 ## Checklist
-- [ ] Label added to the PR (major, minor, patch, bump, etc.)
+- [ ] Label added to the PR
 - [ ] PR up to date with default branch
 - [ ] All checks are green

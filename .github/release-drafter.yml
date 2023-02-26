@@ -1,19 +1,12 @@
 name-template: '$RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
 categories:
-  - title: 'Major changes'
+  - title: 'Enhancements'
     labels:
-      - 'major'
-  - title: 'Minor changes'
-    labels:
-      - 'minor'
-  - title: 'Patches'
-    labels:
-      - 'patch'
-  - title: 'Other updates'
+      - 'enhancement'
+  - title: 'Documentation updates'
     labels:
       - 'documentation'
-      - 'enhancement'
   - title: 'Bumps'
     labels:
       - 'bump'
