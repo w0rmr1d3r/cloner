@@ -1,11 +1,12 @@
 name-template: '$RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
 categories:
- #todo - add sections for PRs, no major, minor, patch
-  - title: 'Other updates'
+  - title: 'Enhancements'
+    labels:
+      - 'enhancement'
+  - title: 'Documentation updates'
     labels:
       - 'documentation'
-      - 'enhancement'
   - title: 'Bumps'
     labels:
       - 'bump'

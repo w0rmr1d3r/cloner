@@ -32,7 +32,7 @@ keywords = ["github", "python", "git", "clone", "organization", "multiprocessing
 version = "1.9.0"
 # Supported Python 3.9 and above
 # If supporting newer versions, update ->  CI and classifiers
-# If minimum version supported changes, update -> CI, coverage, classifiers, setup, release, contributing and security.
+# If minimum version supported changes, update -> CI, coverage, classifiers, pylint, release, contributing.
 requires-python = ">=3.9.0"
 
 # Always try to be compatible with these versions and above
