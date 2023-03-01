@@ -35,7 +35,7 @@ docformatter==1.5.1
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.0
     # via pytest
-faker==17.3.0
+faker==17.4.0
     # via wr-cloner (pyproject.toml)
 flake8==6.0.0
     # via wr-cloner (pyproject.toml)
