@@ -15,6 +15,7 @@ updates:
       - "bump"
     reviewers:
       - "w0rmr1d3r"
+    open-pull-requests-limit: 10
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -25,3 +26,4 @@ updates:
       - "bump"
     reviewers:
       - "w0rmr1d3r"
+    open-pull-requests-limit: 10
