@@ -61,7 +61,7 @@ packaging==23.0
     #   pytest
 pathspec==0.11.0
     # via black
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via wr-cloner (pyproject.toml)
 platformdirs==2.6.2
     # via
