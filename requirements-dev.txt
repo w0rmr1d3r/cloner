@@ -75,7 +75,7 @@ pyflakes==3.0.1
     # via
     #   autoflake
     #   flake8
-pylint==2.16.1
+pylint==2.17.0
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
