@@ -79,7 +79,7 @@ pylint==2.16.4
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
-pytest==7.2.1
+pytest==7.2.2
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
