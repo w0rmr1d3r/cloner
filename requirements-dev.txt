@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==2.14.2
+astroid==2.15.1
     # via pylint
 attrs==22.2.0
     # via pytest
