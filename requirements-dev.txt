@@ -83,7 +83,7 @@ pytest==7.3.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
-requests==2.29.0
+requests==2.31.0
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
