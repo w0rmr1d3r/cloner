@@ -10,10 +10,11 @@ def get_system_cores() -> int:
     """Returns the available system cores or physical cpus by calling the OS to
     retrieve such information. If it cannot be retrieved, it will return -1.
 
-    Not using `len(os.sched_getaffinity(0))` since when it runs,
-    the current process can already be limited to a set of cores.
+    Not using `len(os.sched_getaffinity(0))` since when it runs, the
+    current process can already be limited to a set of cores.
 
-    Ref. https://docs.python.org/3/library/os.html#os.cpu_count
+    Ref.
+    https://docs.python.org/3/library/os.html#os.cpu_count
     """
     cpu_count = os.cpu_count()
     if cpu_count is None:
