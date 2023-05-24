@@ -6,8 +6,6 @@
 #
 astroid==2.15.4
     # via pylint
-attrs==22.2.0
-    # via pytest
 autoflake==2.1.1
     # via wr-cloner (pyproject.toml)
 black==23.3.0
@@ -16,7 +14,7 @@ build==0.10.0
     # via pip-tools
 certifi==2022.12.7
     # via requests
-charset-normalizer==2.1.1
+charset-normalizer==3.1.0
     # via
     #   docformatter
     #   requests
@@ -31,7 +29,7 @@ deprecated==1.2.13
     # via wr-cloner (pyproject.toml)
 dill==0.3.6
     # via pylint
-docformatter==1.5.1
+docformatter==1.7.1
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
@@ -57,6 +55,7 @@ mypy-extensions==1.0.0
     # via black
 packaging==23.0
     # via
+    #   black
     #   build
     #   pytest
 pathspec==0.11.1
@@ -98,7 +97,6 @@ tomli==2.0.1
     #   autoflake
     #   black
     #   build
-    #   docformatter
     #   pylint
     #   pytest
 tomlkit==0.11.6
