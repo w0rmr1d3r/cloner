@@ -33,7 +33,7 @@ def setup_logging(level: str) -> None:
     "token",
     type=str,
     default=None,
-    help="GitHub token to read private repos. This parameter is needed when cloning from an GitHub Enterprise server.",
+    help="GitHub token to read private repos. This parameter is needed when cloning from a GitHub Enterprise server.",
     show_default=True,
 )
 @click.option(
