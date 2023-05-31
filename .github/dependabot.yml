@@ -11,8 +11,6 @@ updates:
       interval: "monthly"
     assignees:
       - "w0rmr1d3r"
-    labels:
-      - "bump"
     reviewers:
       - "w0rmr1d3r"
     open-pull-requests-limit: 10
@@ -22,8 +20,6 @@ updates:
       interval: "monthly"
     assignees:
       - "w0rmr1d3r"
-    labels:
-      - "bump"
     reviewers:
       - "w0rmr1d3r"
     open-pull-requests-limit: 10
