@@ -67,6 +67,7 @@ cloner = "cloner.cli:cli"
 "Bug Tracker" = "https://github.com/w0rmr1d3r/cloner/issues"
 "Documentation" = "https://github.com/w0rmr1d3r/cloner"
 "Changelog" = "https://github.com/w0rmr1d3r/cloner/releases"
+"Funding" = "https://github.com/sponsors/w0rmr1d3r"
 
 [tool.setuptools]
 packages = ["cloner"]
