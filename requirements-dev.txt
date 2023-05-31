@@ -53,7 +53,7 @@ mccabe==0.7.0
     #   pylint
 mypy-extensions==1.0.0
     # via black
-packaging==23.0
+packaging==23.1
     # via
     #   black
     #   build
