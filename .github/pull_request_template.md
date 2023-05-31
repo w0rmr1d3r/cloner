@@ -5,6 +5,4 @@ Add here any related issues if applies
 --->
 
 ## Checklist
-- [ ] Label added to the PR
-- [ ] PR up to date with default branch
-- [ ] All checks are green
+- [ ] Type of change label added
