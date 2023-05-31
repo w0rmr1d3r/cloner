@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==2.15.4
+astroid==2.15.5
     # via pylint
 autoflake==2.1.1
     # via wr-cloner (pyproject.toml)
