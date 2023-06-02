@@ -6,8 +6,6 @@
 #
 astroid==2.15.5
     # via pylint
-autoflake==2.1.1
-    # via wr-cloner (pyproject.toml)
 black==23.3.0
     # via wr-cloner (pyproject.toml)
 build==0.10.0
@@ -35,22 +33,16 @@ exceptiongroup==1.1.1
     # via pytest
 faker==18.9.0
     # via wr-cloner (pyproject.toml)
-flake8==6.0.0
-    # via wr-cloner (pyproject.toml)
 idna==3.4
     # via requests
 iniconfig==2.0.0
     # via pytest
 isort==5.12.0
-    # via
-    #   pylint
-    #   wr-cloner (pyproject.toml)
+    # via pylint
 lazy-object-proxy==1.9.0
     # via astroid
 mccabe==0.7.0
-    # via
-    #   flake8
-    #   pylint
+    # via pylint
 mypy-extensions==1.0.0
     # via black
 packaging==23.1
@@ -68,12 +60,6 @@ platformdirs==3.5.1
     #   pylint
 pluggy==1.0.0
     # via pytest
-pycodestyle==2.10.0
-    # via flake8
-pyflakes==3.0.1
-    # via
-    #   autoflake
-    #   flake8
 pylint==2.16.4
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
@@ -82,26 +68,27 @@ pytest==7.3.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
+pyyaml==6.0
+    # via responses
 requests==2.31.0
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
 responses==0.23.1
     # via wr-cloner (pyproject.toml)
+ruff==0.0.270
+    # via wr-cloner (pyproject.toml)
 six==1.16.0
     # via python-dateutil
-toml==0.10.2
-    # via responses
 tomli==2.0.1
     # via
-    #   autoflake
     #   black
     #   build
     #   pylint
     #   pytest
 tomlkit==0.11.8
     # via pylint
-types-toml==0.10.8.6
+types-pyyaml==6.0.12.10
     # via responses
 typing-extensions==4.6.2
     # via
