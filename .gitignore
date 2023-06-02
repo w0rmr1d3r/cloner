@@ -133,3 +133,6 @@ dmypy.json
 
 # App specific
 repos
+
+# Other tools
+.ruff_cache/

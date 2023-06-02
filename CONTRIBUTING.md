@@ -4,9 +4,9 @@ Issues and Pull Requests are welcome :)
 
 ### Requirements
 
-* [pyenv](https://github.com/pyenv/pyenv)
-* [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
-* Virtual env created with at least Python 3.9
+* Recommended a virtual env created:
+    * [pyenv](https://github.com/pyenv/pyenv)
+    * [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 * Install dev requirements with `make install-dev`
 * Ready to contribute!
 

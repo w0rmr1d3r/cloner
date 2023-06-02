@@ -30,7 +30,7 @@ Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
 Options:
   --version                       Show the version and exit.
   --token TEXT                    GitHub token to read private repos. This
-                                  parameter is needed when cloning from an
+                                  parameter is needed when cloning from a
                                   GitHub Enterprise server.
   --ghe TEXT                      GitHub Enterprise URL. It needs the
                                   GITHUB_ORGANIZATION parameter to clone repos
@@ -65,8 +65,16 @@ cloner --ghe GHE_URL --token SUPER_SECURE_TOKEN GITHUB_ORGANIZATION
 
 # Cloning with options
 cloner --git-options "--depth 1" GITHUB_ORGANIZATION
+```
 
-# With the repo cloned, no options
+### Examples if cloning the repo
+
+```bash
+# Install dependencies with
+make install
+# Adjust PYTHONPATH
+export PYTHONPATH=$PYTHONPATH:.
+# Use it
 python cloner GITHUB_ORGANIZATION
 ```
 
