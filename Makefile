@@ -7,12 +7,12 @@ install-dev:
 format:
 	ruff --fix .
 	black .
-	docformatter --in-place --recursive .
+	docformatter --in-place  .
 
 lint:
 	ruff check .
 	black --check .
-	docformatter --check --recursive .
+	docformatter --check .
 
 unit:
 	pytest -svvv tests
