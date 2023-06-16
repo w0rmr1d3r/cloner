@@ -22,12 +22,13 @@ def obtain_repos(
     repo_queue: queue.Queue,
     ghe: str = None,
 ) -> None:
-    """Makes a request to the GitHub API and then passes that info to the
-    queue. GitHub docs: https://docs.github.com/en/rest?apiVersion=2022-11-28.
+    """Makes a request to the GitHub API to obtain the repos and then passes that info to
+    the queue.
 
-    Docs for GitHub Enterprise available under:
-    https://docs.github.com/en/enterprise-server@3.7 or any matching
-    version that applies
+    GitHub Public API docs: https://docs.github.com/en/rest?apiVersion=2022-11-28.
+
+    GitHub Enterprise docs: https://docs.github.com/en/enterprise-server@3.7
+    Or any other version that applies
     """
 
     if ghe:
