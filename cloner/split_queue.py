@@ -24,8 +24,7 @@ def reset_exit_flag():
 
 
 class ThreadsBelowOne(Exception):
-    """Exception to be thrown when the declared threads to split the queue is
-    below 1."""
+    """Exception to be thrown when the declared threads to split the queue is below 1."""
 
     def __init__(self, message="Threads declared should be higher than 0."):
         super().__init__(message)
@@ -36,8 +35,7 @@ def split_queue(
     repository_queue: queue.Queue,
     repository_queue_lock: threading.Lock(),
 ) -> list[list[Repository]]:
-    """Splits the queue of repos into a list of lists of repos, one per
-    thread."""
+    """Splits the queue of repos into a list of lists of repos, one per thread."""
 
     if number_of_threads < 1:
         raise ThreadsBelowOne
@@ -88,8 +86,8 @@ class SplitterThread(threading.Thread):
         logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
-        """Obtains a repo from the queue and puts it in its list if the mod of
-        the repo identifier equals this thread id.
+        """Obtains a repo from the queue and puts it in its list if the mod of the repo
+        identifier equals this thread id.
 
         Puts the repo back to the queue otherwise.
         """
