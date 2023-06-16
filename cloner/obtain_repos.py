@@ -1,11 +1,7 @@
 import logging
-import queue
-import threading
-from typing import Optional
+from typing import Any, Optional
 
 import requests
-
-from cloner.put_repos_in_queue import put_repos_in_queue
 
 logger = logging.getLogger(__file__)
 
@@ -18,12 +14,10 @@ class TokenNotFoundForGHEException(Exception):
 def obtain_repos(
     github_organization: str,
     github_token: Optional[str],
-    queue_lock: threading.Lock,
-    repo_queue: queue.Queue,
     ghe: str = None,
-) -> None:
-    """Makes a request to the GitHub API to obtain the repos and then passes that info to
-    the queue.
+) -> list[dict[str, Any]]:
+    """Makes a request to the GitHub API to obtain the repos returns that info as a list
+    of dicts.
 
     GitHub Public API docs: https://docs.github.com/en/rest?apiVersion=2022-11-28.
 
@@ -62,4 +56,4 @@ def obtain_repos(
         json_response.extend(response.json())
 
     logger.debug("Finished calling GitHub")
-    put_repos_in_queue(json_response, queue_lock, repo_queue)
+    return json_response

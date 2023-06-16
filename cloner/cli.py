@@ -10,6 +10,7 @@ from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
 from cloner.cpu_config import SYSTEM_CORES_NOT_RETRIEVED, get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
+from cloner.put_repos_in_queue import put_repos_in_queue
 from cloner.split_queue import split_queue
 
 LOGGING_LEVELS = {
@@ -115,12 +116,14 @@ def cli(
     repository_list_queue = queue.Queue()
 
     try:
-        obtain_repos(
-            github_organization=github_organization,
-            github_token=token,
-            queue_lock=repository_list_queue_lock,
-            repo_queue=repository_list_queue,
-            ghe=github_enterprise,
+        put_repos_in_queue(
+            obtain_repos(
+                github_organization=github_organization,
+                github_token=token,
+                ghe=github_enterprise,
+            ),
+            repository_list_queue_lock,
+            repository_list_queue,
         )
     except HTTPError:
         logging.error("An error has occurred while obtaining repos", exc_info=True)
