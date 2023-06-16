@@ -7,6 +7,7 @@ logger = logging.getLogger(__file__)
 
 SYSTEM_CORES_NOT_RETRIEVED = -1
 
+
 @lru_cache
 def get_system_cores() -> int:
     """Returns the available system cores or physical cpus by calling the OS to

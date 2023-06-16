@@ -8,7 +8,7 @@ from requests import HTTPError
 from cloner.__version__ import __version__
 from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
-from cloner.cpu_config import get_system_cores, inform_cpu, SYSTEM_CORES_NOT_RETRIEVED
+from cloner.cpu_config import SYSTEM_CORES_NOT_RETRIEVED, get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
 from cloner.split_queue import split_queue
 
