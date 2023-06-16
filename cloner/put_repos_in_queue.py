@@ -10,7 +10,7 @@ def put_repos_in_queue(
     queue_lock: threading.Lock,
     repo_queue: queue.Queue,
 ) -> None:
-    """Puts into the queue repositories obtained from a dictionary.
+    """Puts into the queue repositories obtained from a list of dicts.
 
     Each element of the json_response is a dictionary containing the GitHub response with
     repository information.

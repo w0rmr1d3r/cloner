@@ -31,9 +31,7 @@ from cloner.repository import Repository
         ),
     ],
 )
-def test_put_repos_into_queue_missing_some_values_in_answer(
-    json_response, expected_repository, queue_lock, repository_list_queue
-):
+def test_put_repos_into_queue(json_response, expected_repository, queue_lock, repository_list_queue):
     put_repos_in_queue(
         json_response=json_response,
         queue_lock=queue_lock,
@@ -69,3 +67,14 @@ def test_threads_below_1_raises_error(
             queue_lock=queue_lock,
             repo_queue=repository_list_queue,
         )
+
+
+def test_put_repos_into_queue_full_github_answer(github_response_one_repo, queue_lock, repository_list_queue):
+    expected = Repository(name="Hello-World", clone_url="https://github.com/octocat/Hello-World.git", repo_id=0)
+    put_repos_in_queue(
+        json_response=github_response_one_repo,
+        queue_lock=queue_lock,
+        repo_queue=repository_list_queue,
+    )
+    assert len(repository_list_queue.queue) == 1
+    assert repository_list_queue.get() == expected
