@@ -10,14 +10,19 @@ def put_repos_in_queue(
     queue_lock: threading.Lock,
     repo_queue: queue.Queue,
 ) -> None:
-    """Puts into the queue repositories obtained from a dictionary Each element
-    of the json_response is a dictionary containing the GitHub response with
-    repository information."""
+    """Puts into the queue repositories obtained from a dictionary.
+
+    Each element of the json_response is a dictionary containing the
+    GitHub response with repository information.
+
+    Raises `KeyError` in case the `cloner_url` in a response doesn't
+    exist
+    """
     queue_lock.acquire()
     for repo_number in range(len(json_response)):
         repo_queue.put(
             Repository(
-                name=json_response[repo_number]["name"],
+                name=json_response[repo_number].get("name", ""),
                 clone_url=json_response[repo_number]["clone_url"],
                 repo_id=repo_number,
             )
