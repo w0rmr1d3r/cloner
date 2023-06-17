@@ -1,10 +1,15 @@
-class Repository:
-    """Class to abstract the needed attributes of a repository."""
+from dataclasses import dataclass
 
-    def __init__(self, name: str, clone_url: str, repo_id: int):
-        self.name = name
-        self.clone_url = clone_url
-        self.repo_id = repo_id
+
+@dataclass
+class Repository:
+    """Dataclass to abstract the only needed attributes of a repository."""
+
+    name: str
+    clone_url: str
+    repo_id: int
+    is_template: bool = False
+    archived: bool = False
 
     def __str__(self):
         return f"Repo: {self.name} URL: {self.clone_url}"

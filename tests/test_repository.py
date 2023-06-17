@@ -41,3 +41,15 @@ def test_repository_can_be_compared_and_is_false_when_compared_to_another_object
         repo_id=2,
     )
     assert repository_one != int(1)
+
+
+def test_repository_is_template_and_archived():
+    repository = Repository(
+        name="repo_one",
+        clone_url="https://github.com/organization/repo_one.git",
+        repo_id=2,
+        is_template=True,
+        archived=False,
+    )
+    assert repository.is_template is True
+    assert repository.archived is False

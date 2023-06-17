@@ -70,7 +70,13 @@ def test_threads_below_1_raises_error(
 
 
 def test_put_repos_into_queue_full_github_answer(github_response_one_repo, queue_lock, repository_list_queue):
-    expected = Repository(name="Hello-World", clone_url="https://github.com/octocat/Hello-World.git", repo_id=0)
+    expected = Repository(
+        name="Hello-World",
+        clone_url="https://github.com/octocat/Hello-World.git",
+        repo_id=0,
+        is_template=False,
+        archived=False,
+    )
     put_repos_in_queue(
         json_response=github_response_one_repo,
         queue_lock=queue_lock,
