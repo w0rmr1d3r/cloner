@@ -24,6 +24,8 @@ def put_repos_in_queue(
                 name=json_response[repo_number].get("name", ""),
                 clone_url=json_response[repo_number]["clone_url"],
                 repo_id=repo_number,
+                is_template=json_response[repo_number].get("is_template", False),
+                archived=json_response[repo_number].get("archived", False),
             )
         )
     queue_lock.release()
