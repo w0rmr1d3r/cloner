@@ -20,6 +20,7 @@ def obtain_repos(
     of dicts.
 
     GitHub Public API docs: https://docs.github.com/en/rest?apiVersion=2022-11-28.
+    Calling: https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories
 
     GitHub Enterprise docs: https://docs.github.com/en/enterprise-server@3.7
     Or any other version that applies
