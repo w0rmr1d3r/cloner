@@ -25,7 +25,7 @@ There's an example of that in the examples section._
 ```text
 Usage: cloner [OPTIONS] GITHUB_ORGANIZATION
 
-  A tool to clone efficiently all the repos in an organization
+  A tool to clone efficiently all the repos in an organization.
 
 Options:
   --version                       Show the version and exit.
@@ -48,6 +48,8 @@ Options:
   --max-threads                   If declared, uses the maximum available
                                   threads and processes in the system. As per
                                   physical cores on the system cpu.
+  --ignore-archived               If declared, will ignore archived repos when
+                                  cloning.
   --help                          Show this message and exit.
 ```
 

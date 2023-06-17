@@ -89,6 +89,15 @@ def setup_logging(level: str) -> None:
     "As per physical cores on the system cpu.",
     show_default=True,
 )
+@click.option(
+    "--ignore-archived",
+    "ignore_archived",
+    type=bool,
+    is_flag=True,
+    default=False,
+    help="If declared, will ignore archived repos when cloning.",
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
@@ -98,6 +107,7 @@ def cli(
     clone_path: str,
     git_options: str,
     max_threads: bool,
+    ignore_archived: bool,
 ) -> None:
     """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
@@ -124,6 +134,7 @@ def cli(
             ),
             repository_list_queue_lock,
             repository_list_queue,
+            ignore_archived,
         )
     except HTTPError:
         logging.error("An error has occurred while obtaining repos", exc_info=True)
