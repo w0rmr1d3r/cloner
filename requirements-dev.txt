@@ -58,7 +58,7 @@ platformdirs==3.5.1
     # via
     #   black
     #   pylint
-pluggy==1.0.0
+pluggy==1.2.0
     # via pytest
 pylint==2.16.4
     # via wr-cloner (pyproject.toml)
