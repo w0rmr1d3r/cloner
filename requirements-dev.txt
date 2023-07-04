@@ -27,7 +27,7 @@ deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
 dill==0.3.6
     # via pylint
-docformatter==1.7.1
+docformatter==1.7.3
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
