@@ -80,7 +80,9 @@ exclude = '''
 '''
 
 [tool.ruff]
-select = ["E", "F", "I"]
+# Override E and F, they are in the default
+# Rules are in: https://beta.ruff.rs/docs/rules/
+select = ["E", "F", "FIX", "I", "RUF"]
 line-length = 120
 
 [tool.pylint.'MESSAGES CONTROL']
