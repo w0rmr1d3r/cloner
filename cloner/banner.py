@@ -15,4 +15,4 @@ def banner() -> str:
 
 def print_banner():
     """Prints the banner."""
-    click.secho(banner(), fg='green')
+    click.secho(banner(), fg="green")
