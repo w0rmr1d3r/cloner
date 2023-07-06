@@ -14,7 +14,7 @@ class TokenNotFoundForGHEException(Exception):
 def obtain_repos(
     github_organization: str,
     github_token: Optional[str],
-    ghe: str = None,
+    ghe: Optional[str] = None,
 ) -> list[dict[str, Any]]:
     """Makes a request to the GitHub API to obtain the repos returns that info as a list
     of dicts.
