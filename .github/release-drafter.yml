@@ -4,6 +4,12 @@ categories:
   - title: 'Enhancements'
     labels:
       - 'enhancement'
+  - title: 'Fixes'
+    labels:
+      - 'bug'
+      - 'fix'
+      - 'hotfix'
+      - 'bugfix'
   - title: 'Documentation updates'
     labels:
       - 'documentation'
