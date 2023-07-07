@@ -1,4 +1,4 @@
-import click
+from cloner.print_options import print_ok
 
 
 def banner() -> str:
@@ -15,4 +15,4 @@ def banner() -> str:
 
 def print_banner():
     """Prints the banner."""
-    click.secho(banner(), fg="green")
+    print_ok(banner())
