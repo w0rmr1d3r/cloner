@@ -74,7 +74,7 @@ requests==2.31.0
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
-responses==0.23.1
+responses==0.23.2
     # via wr-cloner (pyproject.toml)
 ruff==0.0.277
     # via wr-cloner (pyproject.toml)
