@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==2.15.5
+astroid==2.15.6
     # via pylint
 black==23.3.0
     # via wr-cloner (pyproject.toml)
