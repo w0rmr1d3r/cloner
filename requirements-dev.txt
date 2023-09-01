@@ -31,7 +31,7 @@ docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
-faker==19.3.0
+faker==19.3.1
     # via wr-cloner (pyproject.toml)
 idna==3.4
     # via requests
