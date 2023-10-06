@@ -21,17 +21,17 @@ click==8.1.7
     #   black
     #   pip-tools
     #   wr-cloner (pyproject.toml)
-coverage==7.2.7
+coverage==7.3.2
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
-dill==0.3.6
+dill==0.3.7
     # via pylint
 docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
-faker==19.3.0
+faker==19.6.2
     # via wr-cloner (pyproject.toml)
 idna==3.4
     # via requests
@@ -88,7 +88,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.1
     # via pylint
-types-pyyaml==6.0.12.10
+types-pyyaml==6.0.12.12
     # via responses
 typing-extensions==4.7.1
     # via
@@ -97,7 +97,7 @@ typing-extensions==4.7.1
     #   pylint
 untokenize==0.1.1
     # via docformatter
-urllib3==1.26.16
+urllib3==1.26.17
     # via
     #   requests
     #   responses
