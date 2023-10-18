@@ -4,34 +4,34 @@
 #
 #    make freeze-dev
 #
-astroid==2.15.5
+astroid==2.15.6
     # via pylint
 black==23.3.0
     # via wr-cloner (pyproject.toml)
 build==0.10.0
     # via pip-tools
-certifi==2023.5.7
+certifi==2023.7.22
     # via requests
-charset-normalizer==3.1.0
+charset-normalizer==3.2.0
     # via
     #   docformatter
     #   requests
-click==8.1.3
+click==8.1.6
     # via
     #   black
     #   pip-tools
     #   wr-cloner (pyproject.toml)
-coverage==7.2.7
+coverage==7.3.2
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
-dill==0.3.6
+dill==0.3.7
     # via pylint
-docformatter==1.7.3
+docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
-faker==18.11.2
+faker==19.6.2
     # via wr-cloner (pyproject.toml)
 idna==3.4
     # via requests
@@ -54,7 +54,7 @@ pathspec==0.11.1
     # via black
 pip-tools==6.13.0
     # via wr-cloner (pyproject.toml)
-platformdirs==3.8.0
+platformdirs==3.10.0
     # via
     #   black
     #   pylint
@@ -68,13 +68,13 @@ pytest==7.4.0
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
-pyyaml==6.0
+pyyaml==6.0.1
     # via responses
 requests==2.31.0
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
-responses==0.23.1
+responses==0.23.3
     # via wr-cloner (pyproject.toml)
 ruff==0.0.277
     # via wr-cloner (pyproject.toml)
@@ -86,9 +86,9 @@ tomli==2.0.1
     #   build
     #   pylint
     #   pytest
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via pylint
-types-pyyaml==6.0.12.10
+types-pyyaml==6.0.12.12
     # via responses
 typing-extensions==4.7.1
     # via
@@ -97,7 +97,7 @@ typing-extensions==4.7.1
     #   pylint
 untokenize==0.1.1
     # via docformatter
-urllib3==1.26.16
+urllib3==1.26.18
     # via
     #   requests
     #   responses
