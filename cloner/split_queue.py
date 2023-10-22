@@ -1,10 +1,8 @@
-import logging
 import queue
 import threading
 
+from cloner.print_options import print_info
 from cloner.repository import Repository
-
-logger = logging.getLogger(__file__)
 
 EXIT_FLAG = False
 REPOSITORY_LIST_QUEUE_LOCK = None
@@ -58,11 +56,7 @@ def split_queue(
     set_exit_flag()
 
     for splitter_thread in thread_list:
-        logger.debug(f"About to join thread {splitter_thread}")
         splitter_thread.join()
-        logger.debug(
-            f"Length of thread {splitter_thread} clone repo list is {len(splitter_thread.repos_to_clone_list)}"
-        )
         repos_to_clone.append(splitter_thread.repos_to_clone_list)
 
     reset_exit_flag()
@@ -80,10 +74,10 @@ class SplitterThread(threading.Thread):
         self.total_threads = total_threads
 
     def run(self):
-        logger.debug(f"Starting thread -> {self.thread_id}")
+        print_info(f"Starting thread -> {self.thread_id}")
         self.process_repo()
-        logger.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
-        logger.debug(f"Exiting thread -> {self.thread_id}")
+        print_info(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
+        print_info(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
         """Obtains a repo from the queue and puts it in its list if the mod of the repo

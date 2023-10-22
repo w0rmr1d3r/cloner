@@ -1,4 +1,3 @@
-import logging
 import queue
 import threading
 
@@ -10,20 +9,9 @@ from cloner.banner import print_banner
 from cloner.clone_repos import clone_repos
 from cloner.cpu_config import SYSTEM_CORES_NOT_RETRIEVED, get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
+from cloner.print_options import print_error, print_info, print_ok
 from cloner.put_repos_in_queue import put_repos_in_queue
 from cloner.split_queue import split_queue
-
-LOGGING_LEVELS = {
-    "ERROR": logging.ERROR,
-    "WARNING": logging.WARNING,
-    "INFO": logging.INFO,
-    "DEBUG": logging.DEBUG,
-}
-
-
-def setup_logging(level: str) -> None:
-    """Logging setup and configuration."""
-    logging.basicConfig(level=LOGGING_LEVELS[level], format="%(levelname)s - %(message)s")
 
 
 @click.command()
@@ -53,14 +41,6 @@ def setup_logging(level: str) -> None:
     default=4,
     help="Number of threads and processes to use. "
     "For maximum threads and processes on the system, use '--max-threads'",
-    show_default=True,
-)
-@click.option(
-    "--logging",
-    "logging_level",
-    type=click.Choice(LOGGING_LEVELS.keys(), case_sensitive=True),
-    default="INFO",
-    help="Logging level",
     show_default=True,
 )
 @click.option(
@@ -103,14 +83,12 @@ def cli(
     token: str,
     github_enterprise: str,
     threads: int,
-    logging_level: str,
     clone_path: str,
     git_options: str,
     max_threads: bool,
     ignore_archived: bool,
 ) -> None:
     """A tool to clone efficiently all the repos in an organization."""
-    setup_logging(level=logging_level)
 
     print_banner()
 
@@ -120,7 +98,7 @@ def cli(
 
     inform_cpu(selected_threads=threads)
 
-    logging.info(f"Cloning repos for: {github_organization}")
+    print_info(f"Cloning repos for: {github_organization}")
 
     repository_list_queue_lock = threading.Lock()
     repository_list_queue = queue.Queue()
@@ -136,11 +114,11 @@ def cli(
             repository_list_queue,
             ignore_archived,
         )
-    except HTTPError:
-        logging.error("An error has occurred while obtaining repos", exc_info=True)
+    except HTTPError as e:
+        print_error(f"An error has occurred while obtaining repos: {e}")
 
     total_repos_to_clone = repository_list_queue.qsize()
-    logging.info(f"Total repos to clone: {total_repos_to_clone}")
+    print_info(f"Total repos to clone: {total_repos_to_clone}")
 
     if total_repos_to_clone > 0:
         repos_to_clone = split_queue(
@@ -149,7 +127,7 @@ def cli(
             repository_queue_lock=repository_list_queue_lock,
         )
 
-        logging.info("Cloning repos...")
+        print_info("Cloning repos...")
 
         clone_repos(
             number_of_threads=threads,
@@ -158,4 +136,4 @@ def cli(
             git_options=git_options,
         )
 
-        logging.info("Repos cloned!")
+        print_ok("Repos cloned!")
