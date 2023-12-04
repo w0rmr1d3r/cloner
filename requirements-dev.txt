@@ -12,7 +12,7 @@ build==1.0.3
     # via pip-tools
 certifi==2023.7.22
     # via requests
-charset-normalizer==3.2.0
+charset-normalizer==3.3.2
     # via
     #   docformatter
     #   requests
@@ -45,16 +45,16 @@ mccabe==0.7.0
     # via pylint
 mypy-extensions==1.0.0
     # via black
-packaging==23.1
+packaging==23.2
     # via
     #   black
     #   build
     #   pytest
-pathspec==0.11.1
+pathspec==0.11.2
     # via black
 pip-tools==7.3.0
     # via wr-cloner (pyproject.toml)
-platformdirs==3.10.0
+platformdirs==4.0.0
     # via
     #   black
     #   pylint
@@ -64,7 +64,7 @@ pylint==2.16.4
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.0
+pytest==7.4.3
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
@@ -101,7 +101,7 @@ urllib3==1.26.18
     # via
     #   requests
     #   responses
-wheel==0.41.2
+wheel==0.42.0
     # via pip-tools
 wrapt==1.15.0
     # via
