@@ -8,7 +8,7 @@ astroid==3.0.1
     # via pylint
 black==23.3.0
     # via wr-cloner (pyproject.toml)
-build==0.10.0
+build==1.0.3
     # via pip-tools
 certifi==2023.7.22
     # via requests
@@ -60,7 +60,7 @@ platformdirs==4.0.0
     #   pylint
 pluggy==1.3.0
     # via pytest
-pylint==2.16.4
+pylint==3.0.2
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
