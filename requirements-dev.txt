@@ -4,11 +4,11 @@
 #
 #    make freeze-dev
 #
-astroid==2.15.6
+astroid==3.0.1
     # via pylint
 black==23.3.0
     # via wr-cloner (pyproject.toml)
-build==0.10.0
+build==1.0.3
     # via pip-tools
 certifi==2023.7.22
     # via requests
