@@ -90,7 +90,7 @@ tomlkit==0.12.1
     # via pylint
 types-pyyaml==6.0.12.12
     # via responses
-typing-extensions==4.7.1
+typing-extensions==4.9.0
     # via
     #   astroid
     #   black
