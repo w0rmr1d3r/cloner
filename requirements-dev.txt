@@ -86,7 +86,7 @@ tomli==2.0.1
     #   build
     #   pylint
     #   pytest
-tomlkit==0.12.1
+tomlkit==0.12.3
     # via pylint
 types-pyyaml==6.0.12.12
     # via responses
