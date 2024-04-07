@@ -6,7 +6,7 @@
 #
 astroid==3.0.1
     # via pylint
-black==23.3.0
+black==24.3.0
     # via wr-cloner (pyproject.toml)
 build==1.0.3
     # via pip-tools
