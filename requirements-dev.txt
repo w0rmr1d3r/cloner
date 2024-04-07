@@ -6,7 +6,7 @@
 #
 astroid==3.0.1
     # via pylint
-black==23.3.0
+black==24.3.0
     # via wr-cloner (pyproject.toml)
 build==1.0.3
     # via pip-tools
@@ -21,7 +21,7 @@ click==8.1.7
     #   black
     #   pip-tools
     #   wr-cloner (pyproject.toml)
-coverage==7.3.2
+coverage==7.4.1
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
@@ -86,7 +86,7 @@ tomli==2.0.1
     #   build
     #   pylint
     #   pytest
-tomlkit==0.12.1
+tomlkit==0.12.3
     # via pylint
 types-pyyaml==6.0.12.12
     # via responses
