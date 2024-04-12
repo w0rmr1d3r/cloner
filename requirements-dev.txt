@@ -54,7 +54,7 @@ pathspec==0.12.1
     # via black
 pip-tools==7.3.0
     # via wr-cloner (pyproject.toml)
-platformdirs==4.0.0
+platformdirs==4.2.0
     # via
     #   black
     #   pylint
