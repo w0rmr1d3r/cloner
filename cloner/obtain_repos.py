@@ -1,9 +1,8 @@
-import logging
 from typing import Any, Optional
 
 import requests
 
-logger = logging.getLogger(__file__)
+from cloner.print_options import print_info
 
 
 class TokenNotFoundForGHEException(Exception):
@@ -46,15 +45,14 @@ def obtain_repos(
     timeout_seconds = 60
     params = {"per_page": 100}
 
-    logger.debug("First call to GitHub")
+    print_info("First call to GitHub")
     response = requests.get(github_url, headers=headers, params=params, timeout=timeout_seconds)
     response.raise_for_status()
     json_response = response.json()
 
     while "next" in response.links.keys():
-        logger.debug("Keep calling GitHub")
         response = requests.get(response.links["next"]["url"], headers=headers, params=params, timeout=timeout_seconds)
         json_response.extend(response.json())
 
-    logger.debug("Finished calling GitHub")
+    print_info("Finished calling GitHub")
     return json_response

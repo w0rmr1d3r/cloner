@@ -1,9 +1,7 @@
-import logging
 import os
 from functools import lru_cache
 
-logger = logging.getLogger(__file__)
-
+from cloner.print_options import print_warn
 
 SYSTEM_CORES_NOT_RETRIEVED = -1
 
@@ -21,7 +19,7 @@ def get_system_cores() -> int:
     """
     cpu_count = os.cpu_count()
     if cpu_count is None:
-        logging.warning("Could not determine the number of CPUs")
+        print_warn("Could not determine the number of CPUs")
         return SYSTEM_CORES_NOT_RETRIEVED
     return cpu_count
 
@@ -37,12 +35,12 @@ def inform_cpu(selected_threads: int):
     if system_cores == SYSTEM_CORES_NOT_RETRIEVED:
         return
     if selected_threads < system_cores:
-        logging.warning(
+        print_warn(
             f"You have selected less threads than available in your system. "
             f"Available={system_cores} Selected={selected_threads}"
         )
     elif selected_threads > system_cores:
-        logging.warning(
+        print_warn(
             f"You have selected more threads than available in your system. "
             f"Available={system_cores} Selected={selected_threads}"
         )
