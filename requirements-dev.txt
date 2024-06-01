@@ -70,7 +70,7 @@ python-dateutil==2.8.2
     # via faker
 pyyaml==6.0.1
     # via responses
-requests==2.31.0
+requests==2.32.3
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
