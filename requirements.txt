@@ -14,7 +14,7 @@ deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
-requests==2.31.0
+requests==2.32.3
     # via wr-cloner (pyproject.toml)
 urllib3==1.26.18
     # via requests
