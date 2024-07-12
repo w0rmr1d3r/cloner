@@ -76,7 +76,7 @@ requests==2.32.0
     #   wr-cloner (pyproject.toml)
 responses==0.23.3
     # via wr-cloner (pyproject.toml)
-ruff==0.1.7
+ruff==0.5.1
     # via wr-cloner (pyproject.toml)
 six==1.16.0
     # via python-dateutil
