@@ -60,7 +60,7 @@ platformdirs==4.2.0
     #   pylint
 pluggy==1.4.0
     # via pytest
-pylint==3.0.3
+pylint==3.2.7
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
