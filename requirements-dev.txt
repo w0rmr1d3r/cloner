@@ -10,7 +10,7 @@ black==24.3.0
     # via wr-cloner (pyproject.toml)
 build==1.0.3
     # via pip-tools
-certifi==2023.11.17
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via
@@ -70,7 +70,7 @@ python-dateutil==2.8.2
     # via faker
 pyyaml==6.0.1
     # via responses
-requests==2.31.0
+requests==2.32.0
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
@@ -97,7 +97,7 @@ typing-extensions==4.9.0
     #   pylint
 untokenize==0.1.1
     # via docformatter
-urllib3==1.26.18
+urllib3==1.26.20
     # via
     #   requests
     #   responses
