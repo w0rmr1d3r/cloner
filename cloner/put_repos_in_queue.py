@@ -15,7 +15,7 @@ def put_repos_in_queue(
 
     If ignore_archived is passed and the repo is archived, won't add it to the queue.
 
-    Raises `KeyError` in case the `cloner_url` in a response doesn't exist.
+    Raises `KeyError` in case the `clone_url` in a response doesn't exist.
     """
     queue_lock.acquire()
     for repo_number in range(len(json_response)):
