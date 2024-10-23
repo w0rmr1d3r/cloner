@@ -38,6 +38,9 @@ Options:
   --threads INTEGER               Number of threads and processes to use. For
                                   maximum threads and processes on the system,
                                   use '--max-threads'  [default: 4]
+  --max-threads                   If declared, uses the maximum available
+                                  threads and processes in the system. As per
+                                  physical cores on the system cpu.
   --logging [ERROR|WARNING|INFO|DEBUG]
                                   Logging level  [default: INFO]
   --path TEXT                     Sets a path where to clone the repositories
@@ -45,9 +48,6 @@ Options:
   --git-options TEXT              Add options to the clone command (eg: --git-
                                   options "--depth 1"). By default, clones
                                   quietly (--quiet).
-  --max-threads                   If declared, uses the maximum available
-                                  threads and processes in the system. As per
-                                  physical cores on the system cpu.
   --ignore-archived               If declared, will ignore archived repos when
                                   cloning.
   --help                          Show this message and exit.
