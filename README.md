@@ -50,6 +50,10 @@ Options:
                                   quietly (--quiet).
   --ignore-archived               If declared, will ignore archived repos when
                                   cloning.
+  --ignore-template               If declared, will ignore template repos when
+                                  cloning.
+  --ignore-fork                   If declared, will ignore fork repos when
+                                  cloning.
   --help                          Show this message and exit.
 ```
 
