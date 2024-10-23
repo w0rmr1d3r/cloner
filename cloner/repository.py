@@ -10,6 +10,7 @@ class Repository:
     repo_id: int
     is_template: bool = False
     archived: bool = False
+    fork: bool = False
 
     def __str__(self):
         return f"Repo: {self.name} URL: {self.clone_url}"
