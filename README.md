@@ -92,12 +92,16 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
 
-## Other & Troubleshooting
+## Known Issues
 
-Multithreading doesn't work to clone repos, since the `os.system` call is 1 for each PID. The splitting is done with
-multithreading, the cloning with multiprocessing. Same amount of threads and processes.
-
-[Windows usage and support](docs/WINDOWS.md)
+- Multithreading doesn't work to clone repos, since the `os.system` call is 1 for each PID. The splitting is done with
+  multithreading, the cloning with multiprocessing. Same amount of threads and processes.
+- [Windows usage and support](docs/WINDOWS.md)
+- If seeing `RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)` either adjust your git config,
+  as
+  per [this StackOverflow issue](https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro).
+  If still persists, either decrease the number of threads using the `--threads` option or adjust the depth of cloning
+  with `--git-options "--depth 10"` (10 or any other small number).
 
 ## Star History
 

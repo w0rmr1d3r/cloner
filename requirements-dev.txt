@@ -31,7 +31,7 @@ docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.0
     # via pytest
-faker==19.6.2
+faker==24.8.0
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
@@ -64,7 +64,7 @@ pylint==3.0.3
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.3
+pytest==8.1.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
