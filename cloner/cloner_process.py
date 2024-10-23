@@ -5,6 +5,7 @@ from typing import Optional
 
 from deprecated.classic import deprecated
 
+from cloner.print_options import print_info
 from cloner.repository import Repository
 
 
@@ -54,6 +55,7 @@ class ClonerProcess(Process):
 
     def run(self):
         """Clones each repo from the repos_to_clone list given in the constructor."""
+        print_info(f"Process {self.process_id} is starting to clone")
         for repo in self.repos_list:
             self._execute_system_call(
                 command=f"git clone {self.git_options}{repo.clone_url} {self.clone_path}{repo.name}"

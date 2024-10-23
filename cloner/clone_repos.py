@@ -1,10 +1,8 @@
-import logging
 from typing import Optional
 
 from cloner.cloner_process import ClonerProcess
+from cloner.print_options import print_info, print_warn
 from cloner.repository import Repository
-
-logger = logging.getLogger(__file__)
 
 
 def clone_repos(
@@ -23,7 +21,7 @@ def clone_repos(
     Note: Cannot be tested (yet) since it needs to get os.system mock per process
     """
     list_of_processes = []
-    logger.debug(f"Creating processes to clone repos threads={number_of_threads}")
+    print_info(f"Creating processes to clone repos threads={number_of_threads}")
     for i in range(number_of_threads):
         try:
             process = ClonerProcess(
@@ -35,8 +33,8 @@ def clone_repos(
             list_of_processes.append(process)
             process.start()
         except IndexError:
-            logger.warning("IndexError has occurred when passing repos to ClonerProcess")
+            print_warn("IndexError has occurred when passing repos to ClonerProcess")
 
     for process in list_of_processes:
         process.join()
-    logger.debug("All cloner processes joined")
+    print_info("All cloner processes joined")
