@@ -10,7 +10,7 @@ black==24.3.0
     # via wr-cloner (pyproject.toml)
 build==1.0.3
     # via pip-tools
-certifi==2023.11.17
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via
@@ -25,13 +25,13 @@ coverage==7.4.1
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
-dill==0.3.7
+dill==0.3.9
     # via pylint
 docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.0
     # via pytest
-faker==19.6.2
+faker==24.8.0
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
@@ -58,13 +58,13 @@ platformdirs==4.2.0
     # via
     #   black
     #   pylint
-pluggy==1.4.0
+pluggy==1.5.0
     # via pytest
 pylint==3.0.3
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.3
+pytest==8.1.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
@@ -97,11 +97,11 @@ typing-extensions==4.9.0
     #   pylint
 untokenize==0.1.1
     # via docformatter
-urllib3==1.26.18
+urllib3==1.26.20
     # via
     #   requests
     #   responses
-wheel==0.42.0
+wheel==0.44.0
     # via pip-tools
 wrapt==1.15.0
     # via
