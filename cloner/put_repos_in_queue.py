@@ -2,6 +2,8 @@ import queue
 import threading
 from typing import Any
 
+from click import progressbar
+
 from cloner.repository import Repository
 
 
@@ -23,24 +25,25 @@ def put_repos_in_queue(
     Raises `KeyError` in case the `clone_url` in a response doesn't exist.
     """
     queue_lock.acquire()
-    for repo_number in range(len(json_response)):
-        is_repo_template = json_response[repo_number].get("is_template", False)
-        is_repo_archived = json_response[repo_number].get("archived", False)
-        is_repo_fork = json_response[repo_number].get("fork", False)
-        if ignore_archived and is_repo_archived:
-            continue
-        if ignore_template and is_repo_template:
-            continue
-        if ignore_fork and is_repo_fork:
-            continue
-        repo_queue.put(
-            Repository(
-                name=json_response[repo_number].get("name", ""),
-                clone_url=json_response[repo_number]["clone_url"],
-                repo_id=repo_number,
-                is_template=is_repo_template,
-                archived=is_repo_archived,
-                fork=is_repo_fork,
+    with progressbar(range(len(json_response)), label="Adding repos to queue") as bar:
+        for repo_number in bar:
+            is_repo_template = json_response[repo_number].get("is_template", False)
+            is_repo_archived = json_response[repo_number].get("archived", False)
+            is_repo_fork = json_response[repo_number].get("fork", False)
+            if ignore_archived and is_repo_archived:
+                continue
+            if ignore_template and is_repo_template:
+                continue
+            if ignore_fork and is_repo_fork:
+                continue
+            repo_queue.put(
+                Repository(
+                    name=json_response[repo_number].get("name", ""),
+                    clone_url=json_response[repo_number]["clone_url"],
+                    repo_id=repo_number,
+                    is_template=is_repo_template,
+                    archived=is_repo_archived,
+                    fork=is_repo_fork,
+                )
             )
-        )
     queue_lock.release()
