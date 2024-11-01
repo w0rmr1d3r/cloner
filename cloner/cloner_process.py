@@ -1,6 +1,6 @@
 import os
 from multiprocessing import Process
-from subprocess import call
+from subprocess import DEVNULL, call
 from typing import Optional
 
 from click import progressbar
@@ -13,6 +13,7 @@ class ClonerProcess(Process):
     """Class to clone a list of given repositories when started."""
 
     SUCCESSFUL_EXIT_CODE = 0
+    DIRECTORY_ALREADY_EXISTS_AND_NOT_EMPTY_EXIT_CODE = 128
 
     def __init__(
         self,
@@ -46,17 +47,28 @@ class ClonerProcess(Process):
 
     @staticmethod
     def _execute_system_call(command: str) -> int:
-        """Proceeds to call the OS with the given command.
+        """Proceeds to call the OS with the given command. Does not output stderr.
 
         It returns the return code of the given command.
+
+        Docs are in: https://docs.python.org/3/library/subprocess.html#subprocess.call
         """
-        ret_code = call(command, shell=True)
+        ret_code = call(command, shell=True, stderr=DEVNULL)
         return ret_code
 
     def run(self):
         """Clones each repo from the repos_to_clone list given in the constructor."""
+        repos_not_cloned = []
         with progressbar(self.repos_list, label=f"Cloning repos in process {self.process_id}") as bar:
             for repo in bar:
-                self._execute_system_call(
+                exit_code = self._execute_system_call(
                     command=f"git clone {self.git_options}{repo.clone_url} {self.clone_path}{repo.name}"
                 )
+                if exit_code == self.DIRECTORY_ALREADY_EXISTS_AND_NOT_EMPTY_EXIT_CODE:
+                    repos_not_cloned.append(repo.name)
+                    continue
+                if exit_code != self.SUCCESSFUL_EXIT_CODE:
+                    print(f"WARNING - <{repo.name}> couldn't be cloned due to: error code - {exit_code}")
+
+        for r_not_cloned in repos_not_cloned:
+            print(f"<{r_not_cloned}> wasn't cloned due to: directory already exists")
