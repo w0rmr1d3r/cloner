@@ -52,7 +52,7 @@ packaging==23.2
     #   pytest
 pathspec==0.12.1
     # via black
-pip-tools==7.3.0
+pip-tools==7.4.1
     # via wr-cloner (pyproject.toml)
 platformdirs==4.2.0
     # via
@@ -62,7 +62,7 @@ pluggy==1.5.0
     # via pytest
 pylint==3.0.3
     # via wr-cloner (pyproject.toml)
-pyproject-hooks==1.0.0
+pyproject-hooks==1.2.0
     # via build
 pytest==8.1.1
     # via wr-cloner (pyproject.toml)
@@ -74,7 +74,7 @@ requests==2.32.3
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
-responses==0.23.3
+responses==0.25.3
     # via wr-cloner (pyproject.toml)
 ruff==0.1.7
     # via wr-cloner (pyproject.toml)
