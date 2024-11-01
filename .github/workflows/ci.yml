@@ -33,9 +33,15 @@ jobs:
 
   run-py-lint:
     runs-on: ubuntu-latest
-    name: PyLint
     needs:
       - run-ci
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ '3.9', '3.10', '3.11', '3.12', '3.13' ]
+
+    name: PyLint ${{ matrix.python-version }}
 
     steps:
       - uses: actions/checkout@v4
