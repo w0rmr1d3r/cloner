@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  run-ci:
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,3 +30,26 @@ jobs:
 
       - name: Run test
         run: make test
+
+  run-py-lint:
+    runs-on: ubuntu-latest
+    name: PyLint
+    needs:
+      - run-ci
+
+    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: Setup python
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: '3.9'
+#
+#      - name: Install dev dependencies
+#        run: make install-dev
+
+      - name: PyLint Check
+        run: make py-lint
+
+      - name: PyLint for tests
+        run: make py-lint-test
