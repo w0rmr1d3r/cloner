@@ -29,7 +29,7 @@ dill==0.3.9
     # via pylint
 docformatter==1.7.5
     # via wr-cloner (pyproject.toml)
-exceptiongroup==1.2.0
+exceptiongroup==1.2.2
     # via pytest
 faker==24.8.0
     # via wr-cloner (pyproject.toml)
