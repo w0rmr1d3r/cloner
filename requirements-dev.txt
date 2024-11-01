@@ -80,7 +80,7 @@ ruff==0.1.7
     # via wr-cloner (pyproject.toml)
 six==1.16.0
     # via python-dateutil
-tomli==2.0.1
+tomli==2.0.2
     # via
     #   black
     #   build
