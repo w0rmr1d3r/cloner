@@ -31,10 +31,11 @@ classifiers = [
 # Make sure this matches the keywords in GitHub
 keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
 # Make sure this matches the version in __version__.py
+# If major increases, update SECURITY.md
 version = "1.9.4"
 # Supported Python 3.9 and above
-# If supporting newer versions, update ->  CI and classifiers
-# If minimum version supported changes, update -> CI, coverage, classifiers, pylint, release, contributing.
+# If supporting newer versions, update ->  CI & classifiers
+# If minimum version supported changes, update -> CI, classifiers & publish-release
 requires-python = ">=3.9.0"
 
 # Always try to be compatible with these versions and above
