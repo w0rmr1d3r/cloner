@@ -88,7 +88,7 @@ tomli==2.0.2
     #   pytest
 tomlkit==0.12.3
     # via pylint
-types-pyyaml==6.0.12.12
+types-pyyaml==6.0.12.20240917
     # via responses
 typing-extensions==4.12.2
     # via
