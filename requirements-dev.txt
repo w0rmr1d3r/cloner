@@ -35,12 +35,12 @@ faker==24.8.0
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
+importlib-metadata==8.6.1
+    # via build
 iniconfig==2.0.0
     # via pytest
 isort==5.13.2
     # via pylint
-lazy-object-proxy==1.10.0
-    # via astroid
 mccabe==0.7.0
     # via pylint
 mypy-extensions==1.0.0
@@ -63,7 +63,9 @@ pluggy==1.5.0
 pylint==3.3.3
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.2.0
-    # via build
+    # via
+    #   build
+    #   pip-tools
 pytest==8.1.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
@@ -84,12 +86,11 @@ tomli==2.2.1
     # via
     #   black
     #   build
+    #   pip-tools
     #   pylint
     #   pytest
 tomlkit==0.12.3
     # via pylint
-types-pyyaml==6.0.12.20241230
-    # via responses
 typing-extensions==4.12.2
     # via
     #   astroid
@@ -104,9 +105,9 @@ urllib3==1.26.20
 wheel==0.45.1
     # via pip-tools
 wrapt==1.15.0
-    # via
-    #   astroid
-    #   deprecated
+    # via deprecated
+zipp==3.21.0
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
