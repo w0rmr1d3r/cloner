@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==3.0.1
+astroid==3.3.8
     # via pylint
 black==24.3.0
     # via wr-cloner (pyproject.toml)
@@ -12,7 +12,7 @@ build==1.0.3
     # via pip-tools
 certifi==2024.7.4
     # via requests
-charset-normalizer==3.3.2
+charset-normalizer==3.4.1
     # via
     #   docformatter
     #   requests
@@ -35,12 +35,12 @@ faker==24.8.0
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
+importlib-metadata==8.6.1
+    # via build
 iniconfig==2.0.0
     # via pytest
 isort==5.13.2
     # via pylint
-lazy-object-proxy==1.10.0
-    # via astroid
 mccabe==0.7.0
     # via pylint
 mypy-extensions==1.0.0
@@ -60,13 +60,15 @@ platformdirs==4.2.0
     #   pylint
 pluggy==1.5.0
     # via pytest
-pylint==3.0.3
+pylint==3.3.3
     # via wr-cloner (pyproject.toml)
 pyproject-hooks==1.2.0
-    # via build
+    # via
+    #   build
+    #   pip-tools
 pytest==8.1.1
     # via wr-cloner (pyproject.toml)
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via faker
 pyyaml==6.0.2
     # via responses
@@ -76,20 +78,19 @@ requests==2.32.3
     #   wr-cloner (pyproject.toml)
 responses==0.25.3
     # via wr-cloner (pyproject.toml)
-ruff==0.1.7
+ruff==0.1.15
     # via wr-cloner (pyproject.toml)
 six==1.16.0
     # via python-dateutil
-tomli==2.0.2
+tomli==2.2.1
     # via
     #   black
     #   build
+    #   pip-tools
     #   pylint
     #   pytest
 tomlkit==0.12.3
     # via pylint
-types-pyyaml==6.0.12.20241230
-    # via responses
 typing-extensions==4.12.2
     # via
     #   astroid
@@ -101,12 +102,12 @@ urllib3==1.26.20
     # via
     #   requests
     #   responses
-wheel==0.44.0
+wheel==0.45.1
     # via pip-tools
 wrapt==1.15.0
-    # via
-    #   astroid
-    #   deprecated
+    # via deprecated
+zipp==3.21.0
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
