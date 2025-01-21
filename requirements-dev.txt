@@ -68,7 +68,7 @@ pyproject-hooks==1.2.0
     #   pip-tools
 pytest==8.1.1
     # via wr-cloner (pyproject.toml)
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via faker
 pyyaml==6.0.2
     # via responses
