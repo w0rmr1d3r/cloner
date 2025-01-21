@@ -39,7 +39,7 @@ iniconfig==2.0.0
     # via pytest
 isort==5.13.2
     # via pylint
-lazy-object-proxy==1.9.0
+lazy-object-proxy==1.10.0
     # via astroid
 mccabe==0.7.0
     # via pylint
@@ -88,7 +88,7 @@ tomli==2.0.2
     #   pytest
 tomlkit==0.12.3
     # via pylint
-types-pyyaml==6.0.12.12
+types-pyyaml==6.0.12.20241230
     # via responses
 typing-extensions==4.12.2
     # via
