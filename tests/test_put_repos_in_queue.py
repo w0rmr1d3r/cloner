@@ -45,6 +45,7 @@ def test_put_repos_into_queue(json_response, expected_repository, queue_lock, re
         ignore_archived=False,
         ignore_template=False,
         ignore_fork=False,
+        exclude_repos=[],
     )
     assert len(repository_list_queue.queue) == 1
     assert repository_list_queue.get() == expected_repository
@@ -60,6 +61,7 @@ def test_put_repos_into_queue_does_nothing_if_no_answer_obtained(queue_lock, rep
         ignore_archived=False,
         ignore_template=False,
         ignore_fork=False,
+        exclude_repos=[],
     )
 
     assert len(repository_list_queue.queue) == 0
@@ -81,6 +83,7 @@ def test_threads_below_1_raises_error(
             ignore_archived=False,
             ignore_template=False,
             ignore_fork=False,
+            exclude_repos=[],
         )
 
 
@@ -99,6 +102,7 @@ def test_put_repos_into_queue_full_github_answer(github_response_one_repo, queue
         ignore_archived=False,
         ignore_template=False,
         ignore_fork=False,
+        exclude_repos=[],
     )
     assert len(repository_list_queue.queue) == 1
     assert repository_list_queue.get() == expected
@@ -116,6 +120,7 @@ def test_put_repos_into_queue_ignore_archived(queue_lock, repository_list_queue)
         ignore_archived=True,
         ignore_template=False,
         ignore_fork=False,
+        exclude_repos=[],
     )
     assert len(repository_list_queue.queue) == 1
 
@@ -132,6 +137,7 @@ def test_put_repos_into_queue_ignore_template(queue_lock, repository_list_queue)
         ignore_archived=False,
         ignore_template=True,
         ignore_fork=False,
+        exclude_repos=[],
     )
     assert len(repository_list_queue.queue) == 1
 
@@ -148,5 +154,25 @@ def test_put_repos_into_queue_ignore_fork(queue_lock, repository_list_queue):
         ignore_archived=False,
         ignore_template=False,
         ignore_fork=True,
+        exclude_repos=[],
     )
     assert len(repository_list_queue.queue) == 1
+
+
+def test_put_repos_into_queue_exclude_repos(queue_lock, repository_list_queue):
+    response = [
+        {"clone_url": "https://github.com/organisation/test_name.git", "name": "repoa"},
+        {"clone_url": "https://github.com/organisation/test_name.git", "name": "repob"},
+        {"clone_url": "https://github.com/organisation/test_name.git", "name": "repoc"},
+        {"clone_url": "https://github.com/organisation/test_name.git", "name": "repod"},
+    ]
+    put_repos_in_queue(
+        json_response=response,
+        queue_lock=queue_lock,
+        repo_queue=repository_list_queue,
+        ignore_archived=False,
+        ignore_template=False,
+        ignore_fork=False,
+        exclude_repos=["repoc", "repob"],
+    )
+    assert len(repository_list_queue.queue) == 2

@@ -11,6 +11,7 @@ from cloner.clone_repos import clone_repos
 from cloner.cpu_config import SYSTEM_CORES_NOT_RETRIEVED, get_system_cores, inform_cpu
 from cloner.obtain_repos import obtain_repos
 from cloner.put_repos_in_queue import put_repos_in_queue
+from cloner.split_exclude_repos import split_exclude_repos
 from cloner.split_queue import split_queue
 
 LOGGING_LEVELS = {
@@ -116,6 +117,14 @@ def setup_logging(level: str) -> None:
     help="If declared, will ignore fork repos when cloning.",
     show_default=True,
 )
+@click.option(
+    "--exclude-repos",
+    "exclude_repos",
+    type=str,
+    default="",
+    help='Comma separated list of repository names to exclude from cloning. Example: "repository1,repository2".',
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
@@ -128,6 +137,7 @@ def cli(
     ignore_archived: bool,
     ignore_template: bool,
     ignore_fork: bool,
+    exclude_repos: str,
 ) -> None:
     """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
@@ -145,18 +155,21 @@ def cli(
     repository_list_queue_lock = threading.Lock()
     repository_list_queue = queue.Queue()
 
+    transformed_excluded_repos = split_exclude_repos(exclude_repos=exclude_repos)
+
     try:
         put_repos_in_queue(
-            obtain_repos(
+            json_response=obtain_repos(
                 github_organization=github_organization,
                 github_token=token,
                 ghe=github_enterprise,
             ),
-            repository_list_queue_lock,
-            repository_list_queue,
-            ignore_archived,
-            ignore_template,
-            ignore_fork,
+            queue_lock=repository_list_queue_lock,
+            repo_queue=repository_list_queue,
+            ignore_archived=ignore_archived,
+            ignore_template=ignore_template,
+            ignore_fork=ignore_fork,
+            exclude_repos=transformed_excluded_repos,
         )
     except HTTPError:
         logging.error("An error has occurred while obtaining repos", exc_info=True)
