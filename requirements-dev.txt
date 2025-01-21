@@ -68,7 +68,7 @@ pytest==8.1.1
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.8.2
     # via faker
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via responses
 requests==2.32.3
     # via
@@ -88,7 +88,7 @@ tomli==2.2.1
     #   pytest
 tomlkit==0.12.3
     # via pylint
-types-pyyaml==6.0.12.12
+types-pyyaml==6.0.12.20241230
     # via responses
 typing-extensions==4.12.2
     # via
