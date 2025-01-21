@@ -56,7 +56,7 @@ dev = [
     "pylint>=2.15.10",
     "pytest>=6.2.5",
     "responses>=0.20.0",
-    "ruff>=0.0.270"
+    "ruff==0.1.15" # still in 0.x introducing breaking changes
 ]
 
 [project.scripts]
