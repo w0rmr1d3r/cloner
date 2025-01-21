@@ -2,6 +2,8 @@ import logging
 import queue
 import threading
 
+from click import progressbar
+
 from cloner.repository import Repository
 
 logger = logging.getLogger(__file__)
@@ -47,23 +49,25 @@ def split_queue(
     thread_list = []
     repos_to_clone = []
 
-    for i in range(number_of_threads):
-        thread = SplitterThread(thread_id=i, total_threads=number_of_threads)
-        thread_list.append(thread)
-        thread.start()
+    with progressbar(range(number_of_threads), label="Starting threads to split work") as bar:
+        for i in bar:
+            thread = SplitterThread(thread_id=i, total_threads=number_of_threads)
+            thread_list.append(thread)
+            thread.start()
 
     while not repository_queue.empty():
         pass
 
     set_exit_flag()
 
-    for splitter_thread in thread_list:
-        logger.debug(f"About to join thread {splitter_thread}")
-        splitter_thread.join()
-        logger.debug(
-            f"Length of thread {splitter_thread} clone repo list is {len(splitter_thread.repos_to_clone_list)}"
-        )
-        repos_to_clone.append(splitter_thread.repos_to_clone_list)
+    with progressbar(thread_list, label="Closing threads to split work") as bar:
+        for splitter_thread in bar:
+            logger.debug(f"About to join thread {splitter_thread}")
+            splitter_thread.join()
+            logger.debug(
+                f"Length of thread {splitter_thread} clone repo list is {len(splitter_thread.repos_to_clone_list)}"
+            )
+            repos_to_clone.append(splitter_thread.repos_to_clone_list)
 
     reset_exit_flag()
 

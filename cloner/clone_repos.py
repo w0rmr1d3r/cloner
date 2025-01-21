@@ -1,6 +1,8 @@
 import logging
 from typing import Optional
 
+from click import progressbar
+
 from cloner.cloner_process import ClonerProcess
 from cloner.repository import Repository
 
@@ -24,19 +26,22 @@ def clone_repos(
     """
     list_of_processes = []
     logger.debug(f"Creating processes to clone repos threads={number_of_threads}")
-    for i in range(number_of_threads):
-        try:
-            process = ClonerProcess(
-                repos_to_clone=repos_to_clone[i],
-                process_id=i,
-                clone_path=clone_path,
-                git_options=git_options,
-            )
-            list_of_processes.append(process)
-            process.start()
-        except IndexError:
-            logger.warning("IndexError has occurred when passing repos to ClonerProcess")
 
-    for process in list_of_processes:
-        process.join()
+    with progressbar(range(number_of_threads), label="Starting processes to clone repos") as bar:
+        for i in bar:
+            try:
+                process = ClonerProcess(
+                    repos_to_clone=repos_to_clone[i],
+                    process_id=i,
+                    clone_path=clone_path,
+                    git_options=git_options,
+                )
+                list_of_processes.append(process)
+                process.start()
+            except IndexError:
+                logger.warning("IndexError has occurred when passing repos to ClonerProcess")
+
+    with progressbar(list_of_processes, label="Joining processes to clone repos") as bar:
+        for process in bar:
+            process.join()
     logger.debug("All cloner processes joined")

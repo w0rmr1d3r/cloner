@@ -56,6 +56,16 @@ def setup_logging(level: str) -> None:
     show_default=True,
 )
 @click.option(
+    "--max-threads",
+    "max_threads",
+    type=bool,
+    is_flag=True,
+    default=False,
+    help="If declared, uses the maximum available threads and processes in the system. "
+    "As per physical cores on the system cpu.",
+    show_default=True,
+)
+@click.option(
     "--logging",
     "logging_level",
     type=click.Choice(LOGGING_LEVELS.keys(), case_sensitive=True),
@@ -80,16 +90,6 @@ def setup_logging(level: str) -> None:
     show_default=True,
 )
 @click.option(
-    "--max-threads",
-    "max_threads",
-    type=bool,
-    is_flag=True,
-    default=False,
-    help="If declared, uses the maximum available threads and processes in the system. "
-    "As per physical cores on the system cpu.",
-    show_default=True,
-)
-@click.option(
     "--ignore-archived",
     "ignore_archived",
     type=bool,
@@ -98,16 +98,36 @@ def setup_logging(level: str) -> None:
     help="If declared, will ignore archived repos when cloning.",
     show_default=True,
 )
+@click.option(
+    "--ignore-template",
+    "ignore_template",
+    type=bool,
+    is_flag=True,
+    default=False,
+    help="If declared, will ignore template repos when cloning.",
+    show_default=True,
+)
+@click.option(
+    "--ignore-fork",
+    "ignore_fork",
+    type=bool,
+    is_flag=True,
+    default=False,
+    help="If declared, will ignore fork repos when cloning.",
+    show_default=True,
+)
 def cli(
     github_organization: str,
     token: str,
     github_enterprise: str,
     threads: int,
+    max_threads: bool,
     logging_level: str,
     clone_path: str,
     git_options: str,
-    max_threads: bool,
     ignore_archived: bool,
+    ignore_template: bool,
+    ignore_fork: bool,
 ) -> None:
     """A tool to clone efficiently all the repos in an organization."""
     setup_logging(level=logging_level)
@@ -135,6 +155,8 @@ def cli(
             repository_list_queue_lock,
             repository_list_queue,
             ignore_archived,
+            ignore_template,
+            ignore_fork,
         )
     except HTTPError:
         logging.error("An error has occurred while obtaining repos", exc_info=True)
