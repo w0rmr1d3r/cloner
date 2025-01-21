@@ -8,6 +8,7 @@ A tool to clone efficiently all the repos in an organization
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
+[![PyPI Downloads](https://static.pepy.tech/badge/wr-cloner/month)](https://pepy.tech/projects/wr-cloner)
 
 ## Install
 

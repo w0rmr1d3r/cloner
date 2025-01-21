@@ -102,7 +102,7 @@ urllib3==1.26.20
     # via
     #   requests
     #   responses
-wheel==0.44.0
+wheel==0.45.1
     # via pip-tools
 wrapt==1.15.0
     # via deprecated
