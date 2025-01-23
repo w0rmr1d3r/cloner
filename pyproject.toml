@@ -56,7 +56,7 @@ dev = [
     "pylint>=2.15.10",
     "pytest>=6.2.5",
     "responses>=0.20.0",
-    "ruff==0.1.15" # still in 0.x introducing breaking changes
+    "ruff==0.9.2" # still in 0.x introducing breaking changes
 ]
 
 [project.scripts]
@@ -83,10 +83,16 @@ exclude = '''
 '''
 
 [tool.ruff]
-# Override E and F, they are in the default
-# Rules are in: https://beta.ruff.rs/docs/rules/
-select = ["E", "F", "FIX", "I", "RUF"]
 line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E", # default - pycodestyle error
+    "F", # default - pyflakes
+    "FIX", #flake8-fixme
+    "I", # isort
+    "RUF" # ruff specific rules
+]
 
 [tool.pylint.'MESSAGES CONTROL']
 # C0114 - missing module docstring - does not apply (yet)

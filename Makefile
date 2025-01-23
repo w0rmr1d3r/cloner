@@ -5,12 +5,12 @@ install-dev:
 	pip install -r requirements-dev.txt
 
 format:
-	ruff --fix .
+	ruff check --fix
 	black .
 	docformatter --in-place  .
 
 lint:
-	ruff check .
+	ruff check
 	black --check .
 	docformatter --check .
 
