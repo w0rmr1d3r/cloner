@@ -55,6 +55,9 @@ Options:
                                   cloning.
   --ignore-fork                   If declared, will ignore fork repos when
                                   cloning.
+  --exclude-repos TEXT            Comma separated list of repository names to
+                                  exclude from cloning. Example:
+                                  "repository1,repository2".
   --help                          Show this message and exit.
 ```
 

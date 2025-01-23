@@ -14,6 +14,7 @@ def put_repos_in_queue(
     ignore_archived: bool,
     ignore_template: bool,
     ignore_fork: bool,
+    exclude_repos: list[str],
 ) -> None:
     """Puts into the queue repositories obtained from a list of dicts.
 
@@ -30,15 +31,18 @@ def put_repos_in_queue(
             is_repo_template = json_response[repo_number].get("is_template", False)
             is_repo_archived = json_response[repo_number].get("archived", False)
             is_repo_fork = json_response[repo_number].get("fork", False)
+            repo_name = json_response[repo_number].get("name", "")
             if ignore_archived and is_repo_archived:
                 continue
             if ignore_template and is_repo_template:
                 continue
             if ignore_fork and is_repo_fork:
                 continue
+            if repo_name in exclude_repos:
+                continue
             repo_queue.put(
                 Repository(
-                    name=json_response[repo_number].get("name", ""),
+                    name=repo_name,
                     clone_url=json_response[repo_number]["clone_url"],
                     repo_id=repo_number,
                     is_template=is_repo_template,
