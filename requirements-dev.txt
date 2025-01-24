@@ -11,9 +11,7 @@ build==1.0.3
 certifi==2024.7.4
     # via requests
 charset-normalizer==3.4.1
-    # via
-    #   docformatter
-    #   requests
+    # via requests
 click==8.1.7
     # via
     #   pip-tools
@@ -24,8 +22,6 @@ deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
 dill==0.3.9
     # via pylint
-docformatter==1.7.5
-    # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.2
     # via pytest
 faker==24.8.0
@@ -84,8 +80,6 @@ typing-extensions==4.12.2
     # via
     #   astroid
     #   pylint
-untokenize==0.1.1
-    # via docformatter
 urllib3==1.26.20
     # via
     #   requests

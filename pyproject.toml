@@ -49,7 +49,6 @@ dependencies = [
 # Always try to be compatible with these versions and above
 dev = [
     "coverage>=6.3.2",
-    "docformatter>=1.5.1",
     "faker>=12.0.1",
     "pip-tools>=6.5.0",
     "pylint>=2.15.10",
@@ -82,11 +81,25 @@ select = [
     "FIX", #flake8-fixme
     "I", # isort
     "RUF", # ruff specific rules
+    "D", # pydocstyle
+]
+
+ignore = [
+    "D100", # docstring in public module - does not yet apply
+    "D104", # docstring in public package - does not yet apply
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in `__init__`
+    "D203", # incorrect-blank-line-before-class - in favor of D211 no-blank-line-before-class
+    "D212", # multi-line-summary-first-line - in favor of D213 multi-line-summary-second-line
+    "D401", # First line of docstring should be in imperative mood
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 preview = true
+
+[tool.ruff.lint.per-file-ignores]
+"*test*.py" = ["D"] # ignore all docstring lints in tests
 
 [tool.ruff.format]
 quote-style = "double"
@@ -102,15 +115,11 @@ docstring-code-format = true
 # docstrings.
 # This only has an effect when the `docstring-code-format` setting is
 # enabled.
-docstring-code-line-length = 120
+docstring-code-line-length = 90
+
 
 [tool.pylint.'MESSAGES CONTROL']
 # C0114 - missing module docstring - does not apply (yet)
 disable = "C0114"
 fail-under = 8
 max-line-length = 120
-
-[tool.docformatter]
-recursive = true
-wrap-summaries = 90
-wrap-descriptions = 90

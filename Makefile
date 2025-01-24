@@ -7,11 +7,9 @@ install-dev:
 format:
 	ruff check --fix
 	ruff format
-	docformatter --in-place .
 
 lint:
 	ruff check
-	docformatter --check .
 	pylint cloner/
 	# C0116 - missing function docstring - does not apply to tests
 	pylint --disable=C0116 tests/
