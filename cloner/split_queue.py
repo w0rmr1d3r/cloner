@@ -15,13 +15,13 @@ REPOSITORY_LIST_QUEUE = None
 
 def set_exit_flag():
     """Will set to `True` the EXIT_FLAG."""
-    global EXIT_FLAG
+    global EXIT_FLAG  # noqa: PLW0603
     EXIT_FLAG = True
 
 
 def reset_exit_flag():
     """Will reset the EXIT_FLAG back to `False`."""
-    global EXIT_FLAG
+    global EXIT_FLAG  # noqa: PLW0603
     EXIT_FLAG = False
 
 
@@ -41,7 +41,7 @@ def split_queue(
     if number_of_threads < 1:
         raise ThreadsBelowOne
 
-    global REPOSITORY_LIST_QUEUE_LOCK, REPOSITORY_LIST_QUEUE
+    global REPOSITORY_LIST_QUEUE_LOCK, REPOSITORY_LIST_QUEUE  # noqa: PLW0603
     REPOSITORY_LIST_QUEUE_LOCK = repository_queue_lock
     REPOSITORY_LIST_QUEUE = repository_queue
 

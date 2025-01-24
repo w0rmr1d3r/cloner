@@ -1,10 +1,8 @@
-import os
 from multiprocessing import Process
 from subprocess import DEVNULL, call
 from typing import Optional
 
 from click import progressbar
-from deprecated.classic import deprecated
 
 from cloner.repository import Repository
 

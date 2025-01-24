@@ -124,7 +124,7 @@ def setup_logging(level: str) -> None:
     help='Comma separated list of repository names to exclude from cloning. Example: "repository1,repository2".',
     show_default=True,
 )
-def cli(
+def cli(  # noqa: PLR0913, PLR0917
     github_organization: str,
     token: str,
     github_enterprise: str,

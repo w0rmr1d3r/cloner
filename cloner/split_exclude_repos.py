@@ -7,6 +7,6 @@ def split_exclude_repos(exclude_repos: str) -> list[str]:
     """
     result = []
     for repo in exclude_repos.split(","):
-        if repo != "":
+        if repo:
             result.append(repo)
     return result
