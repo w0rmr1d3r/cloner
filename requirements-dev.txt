@@ -6,8 +6,6 @@
 #
 astroid==3.3.8
     # via pylint
-black==24.3.0
-    # via wr-cloner (pyproject.toml)
 build==1.0.3
     # via pip-tools
 certifi==2024.7.4
@@ -18,7 +16,6 @@ charset-normalizer==3.4.1
     #   requests
 click==8.1.7
     # via
-    #   black
     #   pip-tools
     #   wr-cloner (pyproject.toml)
 coverage==7.6.4
@@ -43,21 +40,14 @@ isort==5.13.2
     # via pylint
 mccabe==0.7.0
     # via pylint
-mypy-extensions==1.0.0
-    # via black
 packaging==23.2
     # via
-    #   black
     #   build
     #   pytest
-pathspec==0.12.1
-    # via black
 pip-tools==7.4.1
     # via wr-cloner (pyproject.toml)
 platformdirs==4.2.0
-    # via
-    #   black
-    #   pylint
+    # via pylint
 pluggy==1.5.0
     # via pytest
 pylint==3.3.3
@@ -84,7 +74,6 @@ six==1.16.0
     # via python-dateutil
 tomli==2.2.1
     # via
-    #   black
     #   build
     #   pip-tools
     #   pylint
@@ -94,7 +83,6 @@ tomlkit==0.12.3
 typing-extensions==4.12.2
     # via
     #   astroid
-    #   black
     #   pylint
 untokenize==0.1.1
     # via docformatter

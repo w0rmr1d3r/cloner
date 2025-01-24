@@ -48,7 +48,6 @@ dependencies = [
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
 dev = [
-    "black>=24.3.0",
     "coverage>=6.3.2",
     "docformatter>=1.5.1",
     "faker>=12.0.1",
@@ -73,15 +72,6 @@ cloner = "cloner.cli:cli"
 [tool.setuptools]
 packages = ["cloner"]
 
-[tool.black]
-line-length = 120
-exclude = '''
-/(
-  | \.venv
-  | venv
-)/
-'''
-
 [tool.ruff]
 line-length = 120
 
@@ -91,8 +81,28 @@ select = [
     "F", # default - pyflakes
     "FIX", #flake8-fixme
     "I", # isort
-    "RUF" # ruff specific rules
+    "RUF", # ruff specific rules
 ]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+preview = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = 120
 
 [tool.pylint.'MESSAGES CONTROL']
 # C0114 - missing module docstring - does not apply (yet)

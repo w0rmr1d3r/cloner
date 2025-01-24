@@ -6,12 +6,11 @@ install-dev:
 
 format:
 	ruff check --fix
-	black .
-	docformatter --in-place  .
+	ruff format
+	docformatter --in-place .
 
 lint:
 	ruff check
-	black --check .
 	docformatter --check .
 
 unit:
