@@ -1,6 +1,5 @@
 import responses
-from _pytest.fixtures import fixture
-from _pytest.python_api import raises
+from pytest import fixture, raises
 from requests import HTTPError
 from responses import matchers
 

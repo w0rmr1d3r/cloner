@@ -1,5 +1,5 @@
 import pytest
-from _pytest.python_api import raises
+from pytest import raises
 
 from cloner.put_repos_in_queue import put_repos_in_queue
 from cloner.repository import Repository

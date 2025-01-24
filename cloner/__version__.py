@@ -1,4 +1,5 @@
-"""Exposing version and used on the cli command.
+"""
+Exposing version and used on the cli command.
 
 Update this file accordingly with pyproject.toml.
 """

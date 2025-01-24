@@ -40,7 +40,7 @@ def test_repository_can_be_compared_and_is_false_when_compared_to_another_object
         clone_url="https://github.com/organization/repo_one.git",
         repo_id=2,
     )
-    assert repository_one != int(1)
+    assert repository_one != 1
 
 
 def test_repository_is_template_and_archived():

@@ -7,7 +7,7 @@ from click import progressbar
 from cloner.repository import Repository
 
 
-def put_repos_in_queue(
+def put_repos_in_queue(  # noqa: PLR0913, PLR0917
     json_response: list[dict[str, Any]],
     queue_lock: threading.Lock,
     repo_queue: queue.Queue,
@@ -16,7 +16,8 @@ def put_repos_in_queue(
     ignore_fork: bool,
     exclude_repos: list[str],
 ) -> None:
-    """Puts into the queue repositories obtained from a list of dicts.
+    """
+    Puts into the queue repositories obtained from a list of dicts.
 
     Each element of the json_response is a dictionary containing the GitHub response with
     repository information.

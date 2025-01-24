@@ -7,6 +7,8 @@ logger = logging.getLogger(__file__)
 
 
 class TokenNotFoundForGHEException(Exception):
+    """Exception to be thrown when token isn't provided to use GHE."""
+
     def __init__(self, message="A token is needed when cloning from a GHE server"):
         super().__init__(message)
 
@@ -16,8 +18,10 @@ def obtain_repos(
     github_token: Optional[str],
     ghe: Optional[str] = None,
 ) -> list[dict[str, Any]]:
-    """Makes a request to the GitHub API to obtain the repos returns that info as a list
-    of dicts.
+    """
+    Makes a request to the GitHub API to obtain the repos.
+
+    Info is returned as a list of dicts.
 
     GitHub Public API docs: https://docs.github.com/en/rest?apiVersion=2022-11-28.
     Calling: https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories
@@ -25,7 +29,6 @@ def obtain_repos(
     GitHub Enterprise docs: https://docs.github.com/en/enterprise-server@3.7
     Or any other version that applies
     """
-
     if ghe:
         if github_token is None:
             raise TokenNotFoundForGHEException

@@ -48,15 +48,12 @@ dependencies = [
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
 dev = [
-    "black>=24.3.0",
     "coverage>=6.3.2",
-    "docformatter>=1.5.1",
     "faker>=12.0.1",
     "pip-tools>=6.5.0",
-    "pylint>=2.15.10",
     "pytest>=6.2.5",
     "responses>=0.20.0",
-    "ruff==0.1.15" # still in 0.x introducing breaking changes
+    "ruff==0.9.2" # still in 0.x introducing breaking changes
 ]
 
 [project.scripts]
@@ -73,28 +70,52 @@ cloner = "cloner.cli:cli"
 [tool.setuptools]
 packages = ["cloner"]
 
-[tool.black]
-line-length = 120
-exclude = '''
-/(
-  | \.venv
-  | venv
-)/
-'''
-
 [tool.ruff]
-# Override E and F, they are in the default
-# Rules are in: https://beta.ruff.rs/docs/rules/
-select = ["E", "F", "FIX", "I", "RUF"]
 line-length = 120
 
-[tool.pylint.'MESSAGES CONTROL']
-# C0114 - missing module docstring - does not apply (yet)
-disable = "C0114"
-fail-under = 8
-max-line-length = 120
+[tool.ruff.lint]
+select = [
+    "E", # default - pycodestyle error
+    "F", # default - pyflakes
+    "FIX", #flake8-fixme
+    "I", # isort
+    "RUF", # ruff specific rules
+    "D", # pydocstyle
+    "PL", # pylint - not 100% implemented, see: https://github.com/astral-sh/ruff/issues/970
+]
 
-[tool.docformatter]
-recursive = true
-wrap-summaries = 90
-wrap-descriptions = 90
+ignore = [
+    "D100", # docstring in public module - does not yet apply
+    "D104", # docstring in public package - does not yet apply
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in `__init__`
+    "D203", # incorrect-blank-line-before-class - in favor of D211 no-blank-line-before-class
+    "D212", # multi-line-summary-first-line - in favor of D213 multi-line-summary-second-line
+    "D401", # First line of docstring should be in imperative mood
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+preview = true
+
+[tool.ruff.lint.per-file-ignores]
+"*test*.py" = [
+    "D", # ignore all docstring lints in tests
+    "PLR2004", # ignore magic numbers rule in tests
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = 90

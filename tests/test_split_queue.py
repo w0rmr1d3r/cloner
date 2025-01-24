@@ -1,4 +1,4 @@
-from _pytest.python_api import raises
+from pytest import raises
 
 from cloner.split_queue import ThreadsBelowOne, split_queue
 
