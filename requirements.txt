@@ -4,19 +4,19 @@
 #
 #    make freeze
 #
-certifi==2023.7.22
+certifi==2024.7.4
     # via requests
-charset-normalizer==3.2.0
+charset-normalizer==3.4.1
     # via requests
 click==8.1.7
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.14
     # via wr-cloner (pyproject.toml)
-idna==3.4
+idna==3.7
     # via requests
-requests==2.31.0
+requests==2.32.3
     # via wr-cloner (pyproject.toml)
-urllib3==1.26.18
+urllib3==1.26.20
     # via requests
 wrapt==1.15.0
     # via deprecated

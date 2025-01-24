@@ -22,6 +22,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Security",
     "Topic :: Software Development :: Version Control",
     "Topic :: Software Development :: Version Control :: Git",
@@ -30,10 +31,11 @@ classifiers = [
 # Make sure this matches the keywords in GitHub
 keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
 # Make sure this matches the version in __version__.py
-version = "1.9.3"
+# If major increases, update SECURITY.md
+version = "1.10.0"
 # Supported Python 3.9 and above
-# If supporting newer versions, update ->  CI and classifiers
-# If minimum version supported changes, update -> CI, coverage, classifiers, pylint, release, contributing.
+# If supporting newer versions, update ->  CI & classifiers
+# If minimum version supported changes, update -> CI, classifiers & publish-release
 requires-python = ">=3.9.0"
 
 # Always try to be compatible with these versions and above
@@ -46,7 +48,7 @@ dependencies = [
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
 dev = [
-    "black>=22.3.0",
+    "black>=24.3.0",
     "coverage>=6.3.2",
     "docformatter>=1.5.1",
     "faker>=12.0.1",
@@ -54,7 +56,7 @@ dev = [
     "pylint>=2.15.10",
     "pytest>=6.2.5",
     "responses>=0.20.0",
-    "ruff>=0.0.270"
+    "ruff==0.1.15" # still in 0.x introducing breaking changes
 ]
 
 [project.scripts]

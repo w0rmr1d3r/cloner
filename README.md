@@ -8,10 +8,11 @@ A tool to clone efficiently all the repos in an organization
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
+[![PyPI Downloads](https://static.pepy.tech/badge/wr-cloner/month)](https://pepy.tech/projects/wr-cloner)
 
 ## Install
 
-_When installing from PyPi, use **wr-cloner**, cloner was already taken :sad:_
+_In PyPi it's called **wr-cloner**, cloner was already taken :sad:_
 
 ```bash
 pip install wr-cloner
@@ -38,6 +39,9 @@ Options:
   --threads INTEGER               Number of threads and processes to use. For
                                   maximum threads and processes on the system,
                                   use '--max-threads'  [default: 4]
+  --max-threads                   If declared, uses the maximum available
+                                  threads and processes in the system. As per
+                                  physical cores on the system cpu.
   --logging [ERROR|WARNING|INFO|DEBUG]
                                   Logging level  [default: INFO]
   --path TEXT                     Sets a path where to clone the repositories
@@ -45,11 +49,15 @@ Options:
   --git-options TEXT              Add options to the clone command (eg: --git-
                                   options "--depth 1"). By default, clones
                                   quietly (--quiet).
-  --max-threads                   If declared, uses the maximum available
-                                  threads and processes in the system. As per
-                                  physical cores on the system cpu.
   --ignore-archived               If declared, will ignore archived repos when
                                   cloning.
+  --ignore-template               If declared, will ignore template repos when
+                                  cloning.
+  --ignore-fork                   If declared, will ignore fork repos when
+                                  cloning.
+  --exclude-repos TEXT            Comma separated list of repository names to
+                                  exclude from cloning. Example:
+                                  "repository1,repository2".
   --help                          Show this message and exit.
 ```
 
@@ -92,12 +100,16 @@ Follow the instructions in the [SECURITY.md](SECURITY.md) file.
 
 [MIT](https://github.com/w0rmr1d3r/cloner/blob/master/LICENSE)
 
-## Other & Troubleshooting
+## Known Issues
 
-Multithreading doesn't work to clone repos, since the `os.system` call is 1 for each PID. The splitting is done with
-multithreading, the cloning with multiprocessing. Same amount of threads and processes.
-
-[Windows usage and support](docs/WINDOWS.md)
+- Multithreading doesn't work to clone repos, since the `os.system` call is 1 for each PID. The splitting is done with
+  multithreading, the cloning with multiprocessing. Same amount of threads and processes.
+- [Windows usage and support](docs/WINDOWS.md)
+- If seeing `RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)` either adjust your git config,
+  as
+  per [this StackOverflow issue](https://stackoverflow.com/questions/59282476/error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-protocol-erro).
+  If still persists, either decrease the number of threads using the `--threads` option or adjust the depth of cloning
+  with `--git-options "--depth 10"` (10 or any other small number).
 
 ## Star History
 

@@ -4,6 +4,9 @@ categories:
   - title: 'Enhancements'
     labels:
       - 'enhancement'
+  - title: 'Security Fixes'
+    labels:
+      - 'vuln'
   - title: 'Fixes'
     labels:
       - 'bug'
