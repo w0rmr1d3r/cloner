@@ -41,10 +41,6 @@ class ClonerProcess(Process):
             return default_option + self._git_options + " "
         return default_option
 
-    @deprecated(version="1.9.0", reason="Use `_execute_system_call` instead.")
-    def _execute_system_command(self, command):
-        return os.system(command=command)
-
     @staticmethod
     def _execute_system_call(command: str) -> int:
         """
