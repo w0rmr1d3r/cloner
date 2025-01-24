@@ -7,8 +7,27 @@ on:
     branches: [ master ]
 
 jobs:
-  run-ci:
+  run-lint:
+    name: Lint
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dev dependencies
+        run: make install-dev
+
+      - name: Lint Check
+        run: make lint
+
+  run-test:
+    runs-on: ubuntu-latest
+    needs:
+      - run-lint
 
     strategy:
       fail-fast: false
@@ -31,34 +50,11 @@ jobs:
       - name: Run test
         run: make test
 
-  run-py-lint:
-    name: PyLint
-    runs-on: ubuntu-latest
-    needs:
-      - run-ci
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
-
-      - name: Install dev dependencies
-        run: make install-dev
-
-      - name: PyLint Check
-        run: make py-lint
-
-      - name: PyLint for tests
-        run: make py-lint-test
-
   run-coverage:
     name: Coverage
     runs-on: ubuntu-latest
     needs:
-      - run-ci
+      - run-test
 
     steps:
       - uses: actions/checkout@v4
