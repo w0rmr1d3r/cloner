@@ -10,9 +10,6 @@ format:
 
 lint:
 	ruff check
-	pylint cloner/
-	# C0116 - missing function docstring - does not apply to tests
-	pylint --disable=C0116 tests/
 
 test:
 	pytest -svvv tests
