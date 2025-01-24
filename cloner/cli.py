@@ -52,8 +52,7 @@ def setup_logging(level: str) -> None:
     "threads",
     type=int,
     default=4,
-    help="Number of threads and processes to use. "
-    "For maximum threads and processes on the system, use '--max-threads'",
+    help="Number of threads and processes to use. For maximum threads and processes on the system, use '--max-threads'",
     show_default=True,
 )
 @click.option(
