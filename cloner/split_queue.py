@@ -20,7 +20,7 @@ def set_exit_flag():
 
 
 def reset_exit_flag():
-    """Will reset the EXIT_FLAG back to `False`"""
+    """Will reset the EXIT_FLAG back to `False`."""
     global EXIT_FLAG
     EXIT_FLAG = False
 
@@ -38,7 +38,6 @@ def split_queue(
     repository_queue_lock: threading.Lock(),
 ) -> list[list[Repository]]:
     """Splits the queue of repos into a list of lists of repos, one per thread."""
-
     if number_of_threads < 1:
         raise ThreadsBelowOne
 
@@ -83,16 +82,17 @@ class SplitterThread(threading.Thread):
         self.repos_to_clone_list = []
         self.total_threads = total_threads
 
-    def run(self):
+    def run(self):  # noqa: D102
         logger.debug(f"Starting thread -> {self.thread_id}")
         self.process_repo()
         logger.debug(f"Thread -> {self.thread_id} has {len(self.repos_to_clone_list)} repos")
         logger.debug(f"Exiting thread -> {self.thread_id}")
 
     def process_repo(self) -> None:
-        """Obtains a repo from the queue and puts it in its list if the mod of the repo
-        identifier equals this thread id.
+        """
+        Obtains a repo from the queue and puts it in its list.
 
+        It does so if the mod of the repo identifier equals this thread id.
         Puts the repo back to the queue otherwise.
         """
         # The EXIT_FLAG tell us when it's time to stop working

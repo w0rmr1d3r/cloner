@@ -29,13 +29,13 @@ class ClonerProcess(Process):
         self._git_options = git_options
 
     @property
-    def clone_path(self):
+    def clone_path(self):  # noqa: D102
         if self._clone_path is not None:
             return self._clone_path
         return "./repos/"
 
     @property
-    def git_options(self):
+    def git_options(self):  # noqa: D102
         default_option = "--quiet "
         if self._git_options is not None:
             return default_option + self._git_options + " "
@@ -47,7 +47,8 @@ class ClonerProcess(Process):
 
     @staticmethod
     def _execute_system_call(command: str) -> int:
-        """Proceeds to call the OS with the given command. Does not output stderr.
+        """
+        Proceeds to call the OS with the given command. Does not output stderr.
 
         It returns the return code of the given command.
 
