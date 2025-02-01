@@ -16,7 +16,7 @@ click==8.1.7
     #   wr-cloner (pyproject.toml)
 coverage==7.6.4
     # via wr-cloner (pyproject.toml)
-deprecated==1.2.14
+deprecated==1.2.18
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.2
     # via pytest

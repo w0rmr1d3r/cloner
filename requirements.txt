@@ -10,7 +10,7 @@ charset-normalizer==3.4.1
     # via requests
 click==8.1.7
     # via wr-cloner (pyproject.toml)
-deprecated==1.2.14
+deprecated==1.2.18
     # via wr-cloner (pyproject.toml)
 idna==3.7
     # via requests
