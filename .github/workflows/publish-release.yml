@@ -2,7 +2,9 @@ name: PyPI release
 
 on:
   release:
-    types: [published]
+    types: [ published ]
+
+permissions: read-all
 
 jobs:
   build:
