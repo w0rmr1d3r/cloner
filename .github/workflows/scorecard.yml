@@ -1,10 +1,5 @@
-name: Scorecard supply-chain security
+name: OSSF Scorecard
 on:
-  # For Branch-Protection check. Only the default branch is supported. See
-  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection
-  branch_protection_rule:
-  # To guarantee Maintained check is occasionally updated. See
-  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained
   schedule:
     - cron: '00 8 1 * *' # 8am UTC the first day of the month
   push:
@@ -15,7 +10,7 @@ permissions: read-all
 
 jobs:
   analysis:
-    name: Scorecard analysis
+    name: Analysis
     runs-on: ubuntu-latest
     permissions:
       # Needed to upload the results to code-scanning dashboard.
@@ -35,7 +30,7 @@ jobs:
           results_file: results.sarif
           results_format: sarif
           # (Optional) "write" PAT token. Uncomment the `repo_token` line below if you want to enable the Branch-Protection check on a *public* repository
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          #repo_token: ${{ secrets.GITHUB_TOKEN }}
 
           # Public repositories:
           #   - Publish results to OpenSSF REST API for easy access by consumers
@@ -50,7 +45,7 @@ jobs:
         with:
           name: SARIF file
           path: results.sarif
-          retention-days: 180
+          retention-days: 90
 
       # Upload the results to GitHub's code scanning dashboard (optional).
       # Commenting out will disable upload of results to your repo's Code Scanning dashboard
