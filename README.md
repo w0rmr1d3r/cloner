@@ -7,6 +7,9 @@ A tool to clone efficiently all the repos in an organization
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wr-cloner)
 ![GitHub last commit](https://img.shields.io/github/last-commit/w0rmr1d3r/cloner)
 [![CI](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/w0rmr1d3r/cloner/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/w0rmr1d3r/cloner/badge)](https://scorecard.dev/viewer/?uri=github.com/w0rmr1d3r/cloner)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9982/badge)](https://www.bestpractices.dev/projects/9982)
 [![PyPi downloads](https://img.shields.io/pypi/dm/wr-cloner?label=PyPi%20downloads)](https://pypistats.org/packages/wr-cloner)
 [![PyPI Downloads](https://static.pepy.tech/badge/wr-cloner/month)](https://pepy.tech/projects/wr-cloner)
 
