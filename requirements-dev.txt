@@ -22,7 +22,7 @@ exceptiongroup==1.2.2
     # via pytest
 faker==24.8.0
     # via wr-cloner (pyproject.toml)
-idna==3.7
+idna==3.10
     # via requests
 importlib-metadata==8.6.1
     # via build
