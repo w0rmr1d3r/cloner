@@ -12,11 +12,10 @@ lint:
 	ruff check
 
 test:
-	pytest -svvv tests
+	pytest -vvv tests
 
 coverage:
-	coverage run --source=cloner/ --branch -m pytest tests --junitxml=build/test.xml -v
-	coverage xml -i -o build/coverage.xml
+	coverage run --source=cloner/ --branch -m pytest tests
 	coverage report
 
 freeze:
