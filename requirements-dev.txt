@@ -40,7 +40,7 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pytest==8.1.1
+pytest==8.3.4
     # via wr-cloner (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via faker
