@@ -14,7 +14,7 @@ click==8.1.7
     # via
     #   pip-tools
     #   wr-cloner (pyproject.toml)
-coverage==7.6.10
+coverage==7.6.12
     # via wr-cloner (pyproject.toml)
 deprecated==1.2.18
     # via wr-cloner (pyproject.toml)
