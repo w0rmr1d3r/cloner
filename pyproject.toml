@@ -55,6 +55,9 @@ dev = [
     "responses>=0.20.0",
     "ruff==0.9.2" # still in 0.x introducing breaking changes
 ]
+build = [
+    "build~=1.0"
+]
 
 [project.scripts]
 cloner = "cloner.cli:cli"
