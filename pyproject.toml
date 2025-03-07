@@ -41,7 +41,6 @@ requires-python = ">=3.9.0"
 # Always try to be compatible with these versions and above
 dependencies = [
     "click>=8.0.3",
-    "Deprecated>=1.2.13",
     "requests>=2.27.1"
 ]
 
