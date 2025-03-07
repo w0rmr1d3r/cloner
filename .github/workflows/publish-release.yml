@@ -23,11 +23,8 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
-        run: make install
-
       - name: Install build dependencies
-        run: pip install build
+        run: make install-build
 
       - name: Build project
         run: python3 -m build
