@@ -14,7 +14,7 @@ click==8.1.8
     # via
     #   pip-tools
     #   wr-cloner (pyproject.toml)
-coverage==7.6.12
+coverage==7.8.0
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.2
     # via pytest
