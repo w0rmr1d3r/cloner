@@ -55,7 +55,7 @@ tomli==2.2.1
     #   build
     #   pip-tools
     #   pytest
-tzdata==2025.1
+tzdata==2025.2
     # via faker
 urllib3==1.26.20
     # via
