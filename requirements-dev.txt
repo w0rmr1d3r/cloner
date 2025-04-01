@@ -18,7 +18,7 @@ coverage==7.6.12
     # via wr-cloner (pyproject.toml)
 exceptiongroup==1.2.2
     # via pytest
-faker==36.1.1
+faker==37.1.0
     # via wr-cloner (pyproject.toml)
 idna==3.10
     # via requests
