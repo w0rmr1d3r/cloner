@@ -46,7 +46,7 @@ requests==2.32.3
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
-responses==0.25.6
+responses==0.25.7
     # via wr-cloner (pyproject.toml)
 ruff==0.9.2
     # via wr-cloner (pyproject.toml)
@@ -55,7 +55,7 @@ tomli==2.2.1
     #   build
     #   pip-tools
     #   pytest
-tzdata==2025.1
+tzdata==2025.2
     # via faker
 urllib3==1.26.20
     # via
