@@ -16,7 +16,7 @@ idna==3.10
     # via requests
 importlib-metadata==8.6.1
     # via build
-packaging==24.2
+packaging==25.0
     # via build
 pyproject-hooks==1.2.0
     # via build
