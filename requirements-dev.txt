@@ -22,7 +22,7 @@ faker==37.1.0
     # via wr-cloner (pyproject.toml)
 idna==3.10
     # via requests
-importlib-metadata==8.6.1
+importlib-metadata==8.7.0
     # via build
 iniconfig==2.1.0
     # via pytest
