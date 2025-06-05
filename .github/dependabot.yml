@@ -11,15 +11,11 @@ updates:
       interval: "monthly"
     assignees:
       - "w0rmr1d3r"
-    reviewers:
-      - "w0rmr1d3r"
     open-pull-requests-limit: 10
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
     assignees:
-      - "w0rmr1d3r"
-    reviewers:
       - "w0rmr1d3r"
     open-pull-requests-limit: 10
