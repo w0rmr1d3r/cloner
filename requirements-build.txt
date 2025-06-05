@@ -26,5 +26,5 @@ tomli==2.2.1
     # via build
 urllib3==2.3.0
     # via requests
-zipp==3.21.0
+zipp==3.22.0
     # via importlib-metadata
