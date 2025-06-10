@@ -12,7 +12,7 @@ click==8.1.8
     # via wr-cloner (pyproject.toml)
 idna==3.10
     # via requests
-requests==2.32.3
+requests==2.32.4
     # via wr-cloner (pyproject.toml)
 urllib3==1.26.20
     # via requests
