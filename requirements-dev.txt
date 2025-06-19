@@ -57,7 +57,7 @@ tomli==2.2.1
     #   pytest
 tzdata==2025.2
     # via faker
-urllib3==1.26.20
+urllib3==2.5.0
     # via
     #   requests
     #   responses
