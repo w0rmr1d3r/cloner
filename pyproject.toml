@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65.6.0"]
+requires = ["setuptools>=77.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,17 +8,15 @@ name = "wr-cloner"
 description = "A tool to clone efficiently all the repos in an organization"
 readme = "README.md"
 authors = [{ "name" = "w0rmr1d3r" }]
-license = { text = "MIT" }
+license = "MIT"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -32,27 +30,27 @@ classifiers = [
 keywords = ["github", "python", "git", "clone", "organization", "multiprocessing", "multithreading", "python3"]
 # Make sure this matches the version in __version__.py
 # If major increases, update SECURITY.md
-version = "1.10.0"
-# Supported Python 3.9 and above
+version = "1.11.0"
+# Supported Python 3.10 and above
 # If supporting newer versions, update ->  CI & classifiers
 # If minimum version supported changes, update -> CI, classifiers & publish-release
-requires-python = ">=3.9.0"
+requires-python = ">=3.10.0"
 
 # Always try to be compatible with these versions and above
 dependencies = [
-    "click>=8.0.3",
-    "requests>=2.27.1"
+    "click>=8.1.0",
+    "requests>=2.32.0"
 ]
 
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
 dev = [
-    "coverage>=6.3.2",
-    "faker>=12.0.1",
-    "pip-tools>=6.5.0",
-    "pytest>=6.2.5",
-    "responses>=0.20.0",
-    "ruff==0.9.2" # still in 0.x introducing breaking changes
+    "coverage>=7.0.0",
+    "faker>=37.0.0",
+    "pip-tools>=7.0.0",
+    "pytest>=8.0.0",
+    "responses>=0.25.0",
+    "ruff==0.9.10" # still in 0.x introducing breaking changes
 ]
 build = [
     "build~=1.0"
@@ -65,7 +63,7 @@ cloner = "cloner.cli:cli"
 "Homepage" = "https://github.com/w0rmr1d3r/cloner"
 "Repository" = "https://github.com/w0rmr1d3r/cloner"
 "Bug Tracker" = "https://github.com/w0rmr1d3r/cloner/issues"
-"Documentation" = "https://github.com/w0rmr1d3r/cloner"
+"Documentation" = "https://github.com/w0rmr1d3r/cloner/blob/master/README.md"
 "Changelog" = "https://github.com/w0rmr1d3r/cloner/releases"
 "Funding" = "https://github.com/sponsors/w0rmr1d3r"
 
