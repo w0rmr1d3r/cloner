@@ -42,7 +42,7 @@ pytest==8.4.2
     # via wr-cloner (pyproject.toml)
 pyyaml==6.0.3
     # via responses
-requests==2.32.4
+requests==2.32.5
     # via
     #   responses
     #   wr-cloner (pyproject.toml)
