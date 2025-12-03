@@ -6,9 +6,9 @@
 #
 build==1.2.2
     # via wr-cloner (pyproject.toml)
-certifi==2025.7.14
+certifi==2025.8.3
     # via requests
-charset-normalizer==3.4.2
+charset-normalizer==3.4.3
     # via requests
 click==8.1.8
     # via wr-cloner (pyproject.toml)
@@ -20,7 +20,7 @@ packaging==25.0
     # via build
 pyproject-hooks==1.2.0
     # via build
-requests==2.32.4
+requests==2.32.5
     # via wr-cloner (pyproject.toml)
 tomli==2.2.1
     # via build
