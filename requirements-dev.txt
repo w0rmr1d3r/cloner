@@ -30,7 +30,7 @@ packaging==25.0
     # via
     #   build
     #   pytest
-pip-tools==7.5.0
+pip-tools==7.5.2
     # via wr-cloner (pyproject.toml)
 pluggy==1.6.0
     # via pytest
