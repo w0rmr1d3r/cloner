@@ -9,6 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     assignees:
       - "w0rmr1d3r"
     open-pull-requests-limit: 10
@@ -16,6 +18,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     assignees:
       - "w0rmr1d3r"
     open-pull-requests-limit: 10
