@@ -22,7 +22,7 @@ pyproject-hooks==1.2.0
     # via build
 requests==2.32.5
     # via wr-cloner (pyproject.toml)
-tomli==2.2.1
+tomli==2.3.0
     # via build
 urllib3==2.5.0
     # via requests
