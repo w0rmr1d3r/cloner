@@ -14,7 +14,7 @@ click==8.1.8
     # via wr-cloner (pyproject.toml)
 idna==3.11
     # via requests
-importlib-metadata==8.7.0
+importlib-metadata==8.7.1
     # via build
 packaging==25.0
     # via build
