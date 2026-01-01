@@ -24,7 +24,7 @@ requests==2.32.5
     # via wr-cloner (pyproject.toml)
 tomli==2.3.0
     # via build
-urllib3==2.6.0
+urllib3==2.6.2
     # via requests
 zipp==3.23.0
     # via importlib-metadata
