@@ -14,5 +14,5 @@ idna==3.11
     # via requests
 requests==2.32.5
     # via wr-cloner (pyproject.toml)
-urllib3==2.6.0
+urllib3==2.6.3
     # via requests
